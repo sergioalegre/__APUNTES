@@ -1,0 +1,487 @@
+/* SELECTORES BÁSCIOS */
+
+	/* > Selector de hijos, selecciona a aquellos*/
+	p > span /*todos los span que sean hijos de un párrafo*/
+
+	/* + Selector de hermano adyacente*/
+	p + p /*todos los parrafos que vayan despues de otro párrafo*/
+
+	/* ~ Selector de hermano adyacente*/
+	h2 ~ p /*todos los parrafos que estes despues del h2*/
+
+
+/* SELECTORES ATRIBUTO  */
+
+	<div name="primero"></div>
+	<div name="segundo"></div>
+	<div name="primero"></div>
+	<div name="segundo"></div>
+
+	[name="primero"]{reglas:css;} /*Se aplica a aquellos cuyo name sea 'primero'*/
+
+	[title~="titulo de"]{} /*se aplica a elemento que tenga en el title la cadena 'titulo de'*/ 
+
+	a[href^="http"]{} /*aquellos enlace cuyos href que empiecen por http*/
+
+	a[href$=".com"]{} /*aquellos enlace cuyos href acaben en .com*/
+
+	a[href*="google"]{}  /*aquellos enlace cuyos href contengan la palabra google*/
+
+
+/* PSEUDOCLASES  */
+
+	a:link{} /*No visitado solo para etiquetas a*/
+	a:visited{} /*visitado solo para etiquetas a*/
+	a:active{} /*solo mientras presiones una etiquetas a*/
+	:hover
+	input:focus{}  /*cuando se enfoca un elemento como input o textarea*/
+	:lang{}  /*para que tenga ese elemento un lenguaje específico*/
+
+	/*ESTRUCTURALES*/
+	li:first-child{}  /*primer hijo*/
+	article:last-child{}  /*último hijo*/
+	span:only-child{}  /*aquellos que sean el único hijo dentro de un padre, por ejemplo los span que sean únicos dentro de parrafos*/
+	li:nth-child(5){}; /*aplica solo al quinto elemento del li*/
+		li:nth-child(even){} /*aplica solo a elemento pares del li*/
+		li:nth-child(odd){} /*aplica solo a elemento impares del li*/
+		li:nth-child(3n){} /*aplica solo cada 3 elementos del li*/
+	li:nth-lastchild(2){} /*aplica solo al penultimo elemento del li*/
+	li:nth-of-type(2){} /*para elegir el segundo li dentro de por ejemplo un ul que contiene div y li, solo recorre y cuenta los li en este caso*/
+	p:not(.especial)  /*elije todos los parrafos que no tienen clase llamada especial*/
+
+	/*USER INTERFACE*/
+	input:enabled{}  /*selecciona solo aquellos input con enabled, no aplica a los disabled*/
+		input[type="text"]:enabled{}
+	textarea:disabled{cursor: no-drop;} /*en los textarea desabilitados cambia el cursor a uno de prohibido*/
+	input[type="radio"]:checked+label{}  /*cambia estilos de los label que siguen a un radio button seleccionado*/
+
+
+/* PSEUDOELEMENTO (vídeos 15 y 16)  */
+	
+	<selector opcioinal>::first-line{} /*solo se aplica a las primeras líneas*/
+	<selector opcioinal>::first-letter{} /*solo se aplica a la primera letra*/
+	ejemplo p.parrafo::first-letter{} /*Aplica estilo a la primera letra de parrafos de clase parrafo*/
+
+
+	::before{} /*Inserta HTML antes del emelemto seleccionado*/
+	ejemplo .ie::before{content: "->";} /*Inserta -> delante de elementos de clase ie*/
+	p::after{content: url("imagen.jpg");} /*Mete una imagen despues de los parrafos*/
+
+
+/* LONGITUDES RELATIVAS (vídeos 18) */
+
+	- 1em = 100% tamaño de la fuente definida en elemento padre, sin definirlo es de 16px
+	width: 10em;
+
+	- 1ex = 1/2em
+
+	- 1rem, coge como 100% la medida el font size declarado en html{} rem=roothtml, osea html
+
+	- %, el porcentaje de elemento respecto al padre
+
+
+/* LONGITUDES VIEWPORT (vídeo 19) */
+
+	-vw = viewport width es el 1% de la anchura de la ventana del navegador 
+	-vh = 1% de la altura
+
+	p{width: 100vw; height: 50vh;} /*Que cada párrafo ocupe el 100% de ancho y 50% alto de la ventana*/
+
+	font-size: 4vw; /*Adapta el tamaño del texto al 4% de la pantalla*/
+
+	-vmin = 1% del valor minimo entre vm y vh
+	-vmax = 1%
+
+
+/* COLORES (video 20) */
+
+	- Keywords: 16+126 correspondientes a colores en inglés: red, blue, white ... etc
+	- Hexadecimales: #ff0033; ó #f03 si son repetitivos.
+	- RGB: por ejemplo {color: rgb(255,100,0);}
+	- HSL (tono, saturacion, luminosidad): {color: hsl(350,20%,0%);} La saturacion y luminosidad ha de ser porcentaje
+	- HSLA: controla transparencia por canal alfa {color: hsla(350,20%,0%, .5);}
+	- RGBA {color: rgb(255,100,0, .5);}
+
+
+/* FUENTES (vídeo 22) */
+
+	- font-family: Arial, "Times new Roman", Verdana; /*Admite varios por si no funciona la primera, hay 5 familias genéricas, se recomenienda usar font safe web, es decir que estan en todos los pcs */
+	- font-style: normal, oblique, italica ó inherit que significa heredado del padre
+	- font-weight: bold, bolder, light, lighter, o como numeros de 100 a 900. Bolder y lighter es respecto al padre.
+	- font-size: 
+		- pixeles: 16px
+		- keywords: xx-small, large, small, etc ...
+		- porcentajes: 50% del padre
+		- em´s: 2em
+	-font-variant: inherit, normal ó small-caps, pasa todo a mayusculas pero enfatiza la primera letra de cada frase
+
+	- Shorthands (vídeo 23), permite varias propiedades en una sola línea:
+	ejemplo: {font: italic lighter 18px Arial;}; Obligatorio tamaño y familia y en este orden, el resto son opcionales
+
+
+/* PROPIEDADES DE TEXTO (vídeo 24) */
+	
+	- letter-spacing: controla el espacio horizontal entre letras: inherit, 1.5em
+	- text-decoration: line-thought, overline, underline, none (para enlaces)
+	- text-indent: controla el espacio horizontal en la primera línea. text-indent: 5em;
+	- text-transform: capitalize, lowercase, uppercase ... para mayusculas/minusculas
+	- white-space: pre; no elimina espacios :nowrap; quita los espacios
+	- word-spacing: espaciado entre letras, x ejemplo 2em
+	- word-wrap: break-word; permite partir cadenas largas de texto y no se salgan x ejemplo url
+	
+	- text-shadow /* (vídeo 25) */
+		primer parametro: desplazamiento horizontal
+		segundo parametro: desplazamiento vertical
+		tercer parametro <opcional>: indica cantidad de desenfoque
+		cuarto parametro: un color en cualquier formato
+		ejemplo: 
+			- text-shadow: 1px 4px 5px rgba(255, 26, 54, .8);
+			- text-shadow: -1px -4px 5px gray, 1px 4px 5px gray; concatena sombras
+
+
+/* ESTILOS DE LISTAS (vídeo 26) */
+
+	- list-style-type si es botón, números, circulos, cuadrados, etc
+	- list-style-position para controlar si el marcador de elemento cuentan como parte del elemento
+	- list-style-image: icono.png; ó  list-style-image: url('dominio.es/icono.png');
+	- list-style es el 'shorthand' de todas ellas: 
+		- list-style: armenian inside url('icono.png')
+
+
+/* MODELO DE CAJAS (Vídeo 27) */
+
+	/*Hay dos tipos de cajas html
+		- de bloque: son los h1 al h6, div, parrafos, li, ul: ocupan todo el ancho aunque no lo necesiten
+		- inline: a, span, img:continuan el flujo del contenido sin cambiar*/
+
+	Content: el contenido.
+	Padding es un margen interno.
+	Border: es el limitador del elemento
+	Margin: separa el elemento
+
+	padding: 15px; /*a todos los lados*/
+	padding: 15px 30px; /*superior y alos lados*/
+	padding: 15px 30px 50px;  /*arriba, a los lados e inferior*/
+	padding: 15px 30px 50px 60px; /*arriba, derecha, abajo, izquierda*/
+
+	border-width - border-style - border-color
+		shorthands: border: 20px lime double;
+
+	margin: 15px 30px 50px 60px; /*arriba, derecha, abajo, izquierda*/
+	margin: auto; /*deja igual de espacio a derecha e izquierda, con lo que se centra*/
+
+
+/* WIDTH Y HEIGHT (vídeo 28) */
+
+	Width es para elementos de bloque ya que tienden a ocupar todo el ancho que le de el padre
+
+	width: auto;  /*hasta donde su padre le permita, es su valor predeterminado*/
+
+
+/* BOX-SIZING (vídeo 29) */
+	
+	box-sizing: content-box; /*propiedad por defecto, que sume padding y borde al tamaño de la caja*/
+	box-sizing: border-box; /*le hace recalcular alto y ancho como si el borde no estuviera*/
+
+
+/* DISPLAY (vídeo 30) */
+
+	display: inline;  /*hace que solo ocupe lo que ocupa y no se comporte como un elemento de bloque que lo ocupan todo*/
+	display: block; /* lo contrario, que elementos de línea se comporten como los de bloque*/
+	display: inline-block;  /*para que los elementos inline puedan usar propiedades de los de bloque por ejemplo width*/
+	display: list-item;  /*que se comporten como que fueran elementos li*/
+
+
+/* FLOAT Y CLEAR (vídeo 31) */
+
+	Cuando flotamos un elemento el resto de contenidos hermanos tienden a rellenar el espacio que queda.
+
+	Al flotar un elemento, el elemento flotado reclama su lugar y el resto de elementos se adaptan a este comportamiento.
+
+	Al flotar, 'pierde' el borde, padding y margin del elemento del que viene
+
+	Clear romple el float de los elementos que siguen al elemento flotado
+
+
+/* POSITION Y Z-INDEX (vídeo 32) */
+
+	position: static;  /*propiedad por defecto*/
+	position: relative;  /*se diferencia de static en que con ella admite despues top: left: right: bottom: para desplazarle, este desplazamiento es ignorado por el resto de elementos, por lo que podría solaparse elementos, ya que no modifica el flujo de elementos */
+	/*es lo contrario a float, ya que float mueve el elemento y el resto saben que se ha movido y aprovechan el hueco, con position:relative se respeta el espacio*/
+	position: absolute;  /*romple el flujo y le coloca donde nosotros digamos, los valores top, left, right y bottom se referiran al documento completo */
+	/*Si tenemos un elemento absolute dentro de uno relative, el absolute cogera de límites el relative*/
+	position: fixed; /*que su referencia es en base al ancho/alto de la pantalla de ese momento, o viewport*/
+	/*no le importa el tipo de position que tenga su padre*/
+	/*los valores top, left, right y bottom serán en referencia al viewport */
+
+
+/* BACKROUND (vídeo 33 y 34) */
+
+	background-image: url('fondo.png');  /*puede ser absoluta o relativa*/
+	background-repeat: /*controla como se repite la imagen si no rellena todo*/
+	background-position: center center /*en eje x e y*/
+	background-attachment: /*controla como funciona la imagen al hacer scroll*/
+
+	/*Se admiten las mismas propiedades con multilples imágenes, poniendolas en orden separadas por comas: vídeo 34*/
+	background-image: url('fondo.png'),url('fondo2.png'),url('fondo3.png'); /*multiples imagenes de fondo en el orden que queramos visionarlas*/
+	background-image: no-repeat, repeat-x; /*multiples imagenes de fondo en el orden que queramos repetirlas*/
+
+	background-size: cover; /*intenta escalar la imagen de fondo a todo el viewport sin deformarla*/
+	background-size: contain; /*la hace mas pequeña cuando se necesite pero nunca mas grande*/
+
+	background-origin: border-box; /*empieza a dibujar el fondo en el borde*/
+
+
+/* BORDER RADIUS (vídeo 35) */
+
+	border-top-left-radius: 40px;  /*para una esquina en concreta*/
+	border-radius: arriba, decha, izq, abajo; /*método shorthand*/
+	Admite: px, %, etc;
+
+	border-top-left-radius: 40px  60px;  /*uno para horizontal otro para vertical*/
+
+
+/* BOX-SHADOW (vídeo 36) */
+	
+	box-shadow: 20px 20px; /*eje x y eje y, admite valores negativos*/
+	box-shadow: 20px 20px 10px; /*admite tercer parametro opcional que es el desenfoque (blur) */
+	box-shadow: 20px 20px 10px 10px; /*admite un cuarto parametro opcional que es el spree */
+	box-shadow: 20px 20px 10px 10px red; /*el color de la sombra*/
+
+	/*se pueden concatenar dos sombras en la misma línea:*/
+	box-shadow: 20px 20px, -20px -10px;
+
+
+/* BORDER IMAGE (vídeo 37) */
+	
+	border-image-source: url('../img/borde.png'); /*coloca borde.png en las 4 esquinas*/
+	border-image-slice: 30; /*utiliza los 30 primeros pixeles de cada esquina de la imagen y el resto lo rellena*/
+	border-image-repeat: stretch; /*estira la imagen para que cubra el ancho y alto de la imagen*/
+	border-image-repeat: round;  /*evita cortes de imagen en el borde*/
+	border-image-width: 20px;
+	border-image-outset: 20px; /*da un espacio entre la imagen y su borde, admite 1, 2 3 o 4 parametros */
+
+	border-image: url('borde.png') 30 / 20px stretch; /*es el shorthand del resto*/
+
+
+/* GRADIENTES LINEALES (vídeo 38) */
+
+	/*se puede definir con background o con background-image*/
+
+	background: linear-gradient(red, blue);
+	background: linear-gradient(green, red, blue); /*admite cualquien keyword de colores #000, rgba, etc*/
+
+	/*direcciones que no sean de arriba a abajo*/
+	background: linear-gradient(to rigth green, red); /*hacia la derecha*/
+	background: linear-gradient(to left top green, red);  /*en diagonal*/
+	background: linear-gradient(30deg green, red);  /*ángulo concreto*/
+
+	/*color stops*/
+	background: linear-gradient(red 10%, blue 50%); /*cambia las proporciones de los colores*/
+
+
+/* GRADIENTES RADIALES (vídeo 39) */
+	
+	/*se puede definir con background o con background-image*/
+
+	background: radial-gradient(red, blue);
+	background: radial-gradient(circle, red, blue); /*gradiente circular aunque sea un contenedor alargado, puede ser ellipse*/
+	background: radial-gradient(circle at top, red, blue); /*que mueva el pounto central, admite px*/
+	background: radial-gradient (closest-side at 10px 10px, blue, red);
+	background: radial-gradient (farthest-side at 10px 10px, blue, red);
+
+	/*color stops*/
+	background: radial-gradient (black 10%, red 50%);
+
+
+/* GRADIENTES REPETITIVOS (vídeo 40) */
+
+	background: repeating-radial-gradient();
+	background: repeating-linear-gradient();
+
+
+/* FLEXBOX (vídeo 41) */ (necesita algunos prefijos)
+
+	/*se compone de un contenedor flex-container y de varios flex-items dentro de él*/
+
+	/*al flex-container:*/
+
+	dispaly:flex; /*obligatorio*/
+
+	flex-direction: reverse; /*cambia el orden de los items*/
+	flex-direction: column;  /*pone los items en modo columna*/
+
+	justify-content: space-between; /*se reparten completando todo el flex-container*/
+	justify-content: flex-end;  /*se ponen al final del flex-container*/
+	justify-content: center;  /*se ponen en el centro del flex-container*/
+
+	flex-wrap: wrap; /*si el flex-container del viewport no es suficientemente ancho para no salirse continuan debajo*/
+
+	/*cambiar el ancho de los flex-items:*/
+	flex:2; /*dobla el ancho de aquellos flex-items con flex:1;*/
+
+	order: -1; /*cambia el orden de los flex-items, en este caso el ultimo le pasa a primero*/
+
+	align-self:center; /*alinear veticalmente los flex-items en base a su tamaño*/
+
+	/*la idea es completarlo con media-queries*/
+	@media screen and (max-width: 760px){
+		.contenedor{
+			flex-direction: column; /*los flex items serán columnas hasta que viewport sea menos a 760px que ocuparan todo el ancho*/
+		}
+	}
+
+
+/* MULTICOLUMN (vídeo 42) */ (necesita algunos prefijos)
+
+	column-count: 3; /*dispone el contenido en 3 columnas*/
+
+	img{
+		max-width:100%;  /*hace que se adapten las imagenes al ancho de columnas independientemente del viewport*/
+	}
+
+	column-gap: 100px; /*el espacio entre columnas*/
+
+	column-rule: 2px dotted red; /*borde*/
+
+	column-width: 300px; /*si el viewport no da para el nºcolumnas*column-width empieza a adaptarse*/
+
+	h1{
+		column-span: all; /*hace que los h1 no cojan el ancho de las columnas y ocupen lo que necesiten*/
+	}
+
+	/*shothand para count & width:*/
+	columns: 3 300px;  /*3 columnas de 300px y si el viewport es menor a 900px rompera debajo*/
+
+
+/* FONT FACE (vídeo 43) */
+	
+	opcion1: desde servidores de google
+
+	opcion2: desde nuestro servidor
+
+	mas compatible en .woff
+
+
+/* ICON FONTS (vídeo 44) */
+
+	font Awesome
+	Components (utilizado en bootstrap)
+	IcoMoon
+
+
+/* TRANSICIONES (vídeo 45) */
+
+	transition-property: background, border-radius; /*que transiciones solo estas dos propiedades, sin duration no tiene efecto*/
+	trasition-duration: .5s;  /*medio segundo para ambas propiedades*/
+	trasition-duration: .5s, 1s;  /*medio segundo para la primera y q segundo para la segunda*/
+
+	/*si quiero transicion en todas las propiedades:*/
+	transition-property:all;
+
+	/*para que se aplique la transicion al entrar y al salir hay que indicarlas en el contenedor sin hover*/
+
+	transition-delay: 1s; /*retardo de la ejecución antes de iniciarse*/
+	transition-delay: 1s, 5s; /*para mas de una propiedad*/
+
+	/*curva de tiempos:*/
+	transition-timing-function: easi-in-out; /*ease, linear, etc*/
+
+	/*shorthand:*/
+	transition: all 1s easi-in-out .5s;  /*todas las propiedades durante 1s easi-in-out con delay de 0.5sg*/
+
+	/*se pueden encadenar separadas por comas*/
+
+/* TRANSFORMACIONES 2D (vídeo 46) */ (necesita prefijo -WEBKIT)
+
+	transform: rotate(20deg); /*se suele convinar con transition*/
+	/*rotate tiene la propiedad turn para hacer 360º, 2turn = 2 vueltas*/
+
+	/*para cambiar el punto de rotacion:*/
+	transform-origin: 20% 30%; /*por defecto siempre es 50% 50%*/
+	transform-origin: top right; /*con palabras claves*/
+
+	transform: scaleY(1.5); /*cambia la altura 1,5 veces*/
+	transform: scale(2); /*2 veces el tamaño en X e Y*/
+
+	transform:skewX(45deg); /*deforma en los 45º del eje X*/
+
+	transform: translateX(200px); /*mueve 200px a la derecha, admite negativos y eje Y*/
+
+	/*juntando todo:*/
+	transform: scale(1.5) rotate(2turn) translate(20%, -50%);
+
+
+/* TRANSFORMACIONES 3D (vídeo 47) */ (necesita prefijo -WEBKIT)
+
+	body{
+		-webkit-prespective: 800px;  /*le da profundidad*/
+		-webkit-prespective-origin: top; /*opcion1*/
+		-webkit-prespective-origin: 40% 40%; /*opcion2*/
+	}
+
+	#hijo_de_body{
+		transition: all 1s ease;
+		transform-style: preserve-3d; /*opcion que permitiras a los hijos del hijo de body hacer un rotate con efecto3D*/
+	}
+
+	#hijo_de_body:hover{
+		transform: rotateX(45deg); /*opcion1*/
+		transform: rotateZ(-45deg); /*opcion2*/
+		transform: rotate3d(1,1,0, 45deg); /*opcion3 gira en X e Y pero no en Z, X e Y giran 45º */
+
+		transform: traslateZ(10px); /*hace el efecto de acarse y negativos alejarse*/
+		transform: traslate3d(100px, 10px, 0px); /*traslada 100, 10 y 0 en X, Y, Z respectivamente*/
+
+		trasform: scaleZ(5) traslateZ(100px); /*se va a escalar 500px acercandose, con scale negativo se aleja*/
+	}
+
+
+/* ANIMACIONES (vídeo 48) */ (necesita prefijo -WEBKIT)
+
+	body{
+		background: url(paisaje.jpg) no-repeat 0px -30px;
+		-webkit-animation: fondo .5s ease 1s infinite;
+	}
+	.coche{
+		position: relative;
+		background: url(ferrari.png);
+		-webkit-animation-name: anima_coche;
+		-webkit-animation-duration: 2s; /*opcional, en milisegundos 0.2s*/
+		-webkit-animation-timing-function: easi-in-out; /*opcional: lento a rapido a lento*/
+		-webkit-animation-delay: .5s; /*opcional, retraso de 1/2 sg*/
+		-webkit-animation-iteration-count: 3; /*opcional, numero de  ciclos de animacion, existe la propiedad 'infinite'*/
+		-webkit-animation-direction: reverse; /*opcional, de atras a adelante, existe la propiedad 'alternate'*/
+
+		/*shothand*/
+		-webkit-animation: coche 2s easi-in-out .5s infinite reverse;
+	}
+	.rueda_trasera{
+		position: absolute;
+		background-image: url(rueda.png);
+		left: 20px;
+		top: 25px;
+		z-index:2;
+		-webkit-animation: llanta .5s infinite linear;
+	}
+	.rueda_delantera{
+		position: absolute;
+		background-image: url(rueda.png);
+		left: 40px;
+		top: 25px;
+		z-index:2;
+		-webkit-animation: llanta .5s infinite linear;
+	}
+
+	@-webkit-keyframes anima_coche{
+		0%{left: 0;}
+		100%{left: 80%;} /*mueve el coche a la derecha y las ruedas con el aunque las ruedas no giran*/
+	}
+	@-webkit-keyframes fondo{
+		0%{background-position: left top;}  /*que mueva el fondo para dar sensacion de velocidad*/
+		100%{background-position: right top;}
+	}
+	@-webkit-keyframes llanta{
+		0%{-webkit-transform: rotate(0deg);}  /*que gire la rueda para dar sensacion de velocidad*/
+		100%{-webkit-transform: rotate(360deg);}
+	}
