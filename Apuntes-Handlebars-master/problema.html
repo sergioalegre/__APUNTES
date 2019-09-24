@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Handlebars: El problema del contenido dinámico en HTML</title>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<div id="contenedor">
+		
+	</div>
+	
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/handlebars-v2.0.0.js"></script>
+
+	<script>
+		var alumnos = [{nombre:'Marcos', edad:20}, {nombre:'Armando', edad:22}, {nombre:'Guzmán', edad:24}];
+
+		function generarListadoAlumnos_A ( alumnos ) {
+			var total = alumnos.length;
+			var html = '';
+			var i = 0;
+
+			html = '<dl>';
+			for (i=0; i<total; i++) {
+				html += '<dt>'+alumnos[i].nombre+'</dt>'+'<dd>('+alumnos[i].edad+')</dd>';
+			}
+			html += '</dl>';
+
+			return html;
+		}
+
+		function generarListadoAlumnos_B ( alumnos ) {
+			var total = alumnos.length;
+			var html = '';
+			var i = 0;
+			var templateAlumno = '<dt>{{nombre}}</dt><dd>({{edad}})</dd>';
+			var alumno = '';
+
+			html = '<dl>';
+			for (i=0; i<total; i++) {
+				alumno = templateAlumno.replace('{{nombre}}', alumnos[i].nombre);
+				alumno = alumno.replace( '{{edad}}', alumnos[i].edad);
+				html += alumno;
+			}
+			html += '</dl>';
+
+			return html;
+		}
+
+		$(document).ready(function() {			
+			$('#contenedor').append( generarListadoAlumnos_A(alumnos) );
+			$('#contenedor').append( generarListadoAlumnos_B(alumnos) );
+		})
+	</script>
+</body>
+</html>
