@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Handlebars: Estructuras condicionales</title>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script id="mi-plantilla" type="text/x-handlebars-template">
+	  	<h1>¡Hola {{nick}}!</h1>
+	  	{{#if dispositivo}}
+	  		<p>Te has conectado desde: {{dispositivo}}</p>
+	  	{{else}}
+	  		<p>No hemos identificado desde dónde te conectas.</p>
+	  	{{/if}}
+
+	  	{{#unless dispositivo}}
+	  		<p>(unless) No hemos identificado desde donde te contectas.</p>
+	  	{{else}}
+	  		<p>(unless) Te has conectado desde: {{dispositivo}}</p>
+	  	{{/unless}}
+	</script>
+</head>
+<body>
+
+	<div id="contenedor"></div>
+	
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/handlebars-v2.0.0.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+			var source   = $("#mi-plantilla").html();		
+			var plantilla = Handlebars.compile(source);
+
+			var usuarioDispositivo = { nick: 'Carlos', dispositivo: 'WEB' };			
+			var usuarioSinIdentificar = { nick: 'Carlos'};
+			var usuarioSinDefinir = { nick: 'Carlos', dispositivo: '' };
+			
+			$('#contenedor').html( plantilla( usuarioDispositivo ) );
+		})
+	</script>
+</body>
+</html>
