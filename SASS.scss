@@ -1,0 +1,122 @@
+//comentario que no se verá en el CSS
+
+/* comentario que SI se verá en CSS */
+
+$nombre_variable: valor;
+
+
+//MIXINS (vídeo 7)
+	@mixing nombre{  //mixin sin parametros
+
+	}
+	@mixing nombre2($tamano, $color) //mixin con paramertros
+	{
+		font-size: $tamano;
+		color: $color
+	}
+
+	.selector{
+		@include nombre; //llamada a mixing sin parametros
+		@include nombre2( 15px, #000);  //llamada a mixing con parametros
+	}
+
+//EXTENDER (vídeo 8)
+	.caja1{
+
+	}
+	.caja2{  //.caja2 tendra todas las propiedades de caja1 mas las que tenga el
+		@extend .caja1;
+
+	}
+
+//PLACEHOLDER (vídeo 8)
+	%boton{  //este elemento no aparecerá en CSS
+
+	}
+	.boton_cancelar{
+		@extend %boton;
+	}
+
+//IMPORT y PARTIAL permite fusionar en un solo css varios scss (vídeo 9)
+	//x ejemplo un archivo _variables.scss, otro _mixins.scss y estilos.scss
+
+	//al nombrar el scss precedido de _ sass entiende que es un archivo 'Partial' en este caso _variables y _mixin
+	// en estilos.scss pondríamos al comienzo:
+
+	@import "_mixins.scss";
+	@import "_variables.scss";
+
+//COLORES (vídeo 10)
+	//SASS permite sumar o restar variables que contengan colores
+	$color1: #000; $color2: #777; 
+	.selector{
+		color: $color1 + $color2;
+	}
+	//permite definir los rgba y hsl, hsla de una manera mas simple:
+	$color: rgba(#777, 0.5); 
+	$color: hsla(180deg, 25%, 75%, .7); //color, saturación, tono, canal alfa
+	//permite crear paletas de colores en base a un único colos cambiando HSLA (color, saturación, tono):
+	$color_base: hsl(152, 100%, 30%);
+	.color1{
+		background: lighten ($color_base, 20%); //un 20% mas luminoso que el color de base
+	}
+	.color2{
+		background: darken($color_base, 10%); //un 10% mas oscuro que el base
+	}
+	.color3{
+		background: desaturate($color_base, 20%); //20% mas desaturado q ue el base
+	}
+	.color4{
+		background: invert($color_base); //invierte el color
+	}
+	.color5{ //busca colores complementarios
+		background: complement($color_base); //te da un color que le va bien
+	}
+	.color6{
+		background: greyscale($color_base); //a escala de grises
+	}
+
+//MEDIA QUERIES (vídeo 11)
+	//usando anidamiento - nesting
+
+	$smartphone: "(max-width: 480px)";
+	$tablet: "(min-width: 481px) and (max-width: 1024px)";
+	$desktop: "(min-width: 1025px)";
+
+	@mixin tablets{
+		@media (min-width: 481px) and (max-width: 1024px){
+
+		}
+	}
+
+	#contacto{
+		@media #{$smartphone} {  //modo1 con variables
+			width: 100%;
+		}
+		@include tablets {  //modo2 con mixin
+			width: 70%; 
+		}
+		@media #{$desktop} {
+			width: 50%;
+		}
+	}
+
+//INTERPOLACIÓN DE VARIABLES (vídeo 12)
+	//???? es cambiar $i por #{i}
+
+
+//IF - ElSE (vídeo 13)
+	@if $color == orange {
+		border: orange solid 2px;
+	} @else if $color == green{
+
+	} @else {}
+
+
+//FOR (vídeo 14)
+	@for $i form 1 through 5{
+		.caja#{i} {
+			width: 5px * #{i}; //caja1 5px, caja2 10px, caja3 15px ... 
+		}
+	}
+
