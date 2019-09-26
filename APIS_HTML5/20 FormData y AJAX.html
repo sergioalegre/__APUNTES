@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Objeto FormData con AJAX - XMLHTTPRequest 2</title>
+	<meta charset='utf-8'>
+</head>
+<body>
+	<h1>Objeto FormData con AJAX - XMLHTTPRequest 2</h1>
+	<input type="text" id="usuario" placeholder='Coloca tu usuario'>
+	<button id="enviar">Enviar</button>
+
+	<script>
+		window.addEventListener('load', init, false);
+
+		function init(){
+			document.getElementById('enviar').addEventListener('click', enviarDatos, false);
+		}
+
+		function enviarDatos(){
+			var usuario = document.getElementById('usuario').value;
+			var fD = new FormData();
+			fD.append('datos_usuario', usuario);
+			var ajax = new XMLHttpRequest();
+			ajax.open('POST','20 FormData y AJAX.php', true);
+			ajax.responseType = "text"; //le has de decir que esperas responder
+			ajax.addEventListener('load', function(e){
+				if(this.status = 200){ //todo fue OK
+					alert(this.response);
+				}
+			},false);
+			ajax.send(fD);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Archivos binarios grandes BLOB´s</title>
+	<meta charset='utf-8'>
+</head>
+<body>
+	<h1>Archivos binarios grandes BLOB´s</h1>
+	<h4>instanciando objeto FileReader</h4>
+
+	<label>Selecciona un archivo:</label>
+	<input type='file' id='archivo'> <!-- ha de ser tipo input para tener el evento 'change' -->
+
+	<script>
+		window.addEventListener('load',init,false);
+
+		function init(){
+			var inptFile = document.getElementById('archivo');
+			inptFile.addEventListener('change',crearBlob,false);
+		}
+
+		function crearBlob(e){
+			var archivos = e.target.files;
+			for(var i = 0;i<archivos.length;i++){
+				var archivo = archivos[i];
+				var fR = new FileReader();
+				fR.addEventListener('load',function(){mostrar(event,archivo);},false);
+				var blob = archivo.slice(0,1000);  //este método slice permite trocear el archivo
+				fR.readAsBinaryString(blob);
+			}
+		}
+
+		function mostrar(e,archivo){
+			console.log(e);
+			console.log(archivo);
+		}
+	</script>
+</body>
+</html>

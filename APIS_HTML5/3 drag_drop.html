@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drag&Drop API</title>
+	<meta charset='utf-8'>
+	<link rel="stylesheet" href="3 drag&drop.css">
+</head>
+<body>
+	<h1>Drag&Drop API y manejo de nodos JS</h1>
+	<h4>Mueve elementos del div izq al derecho conservando su posición de origen</h4>
+	<h4>La posición de los circulos se genera aleatoriamente</h4>
+	<div id='main'>
+		<div class="div_origen">
+			<div class="circulo" draggable='true'></div>  <!-- draggable='true' requisito para que se pueda mover -->
+			<div class="circulo" draggable='true'></div>
+			<div class="circulo" draggable='true'></div>
+			<div class="circulo" draggable='true'></div>
+		</div>
+
+		<div class="div_destino"></div>
+	</div>
+	<script>
+		var destino;
+		var circuloArrastrandose;
+		window.addEventListener('load',init);
+		function init(){
+			destino = document.querySelector('.div_destino');
+			destino.addEventListener('dragover', dragSobreDestino, false); //eventos sobre la capa de destino
+			destino.addEventListener('dragleave', dragSalioDestino, false);
+			destino.addEventListener('drop', manejarDrop, false);
+
+			var circulos = document.getElementsByClassName('circulo');
+			for(i in circulos){
+				var circulo = circulos[i];
+				var x = random(0,90);
+				var y = random(0,90);
+				if(typeof circulo.style != "undefined"){
+					circulo.style.top = y+'%';
+					circulo.style.left = x+'%';
+					circulo.addEventListener('dragstart', dragIniciado, false);  //evento que llama a funcion
+					circulo.addEventListener('dragend', dragFinalizado, false);
+				}
+			}
+		}
+		function random (min, max) {
+ 			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+		function dragIniciado(e){
+			this.style.backgroundColor ='blue';  //al empezar el drag que le cambie el color
+			circuloArrastrandose = this;
+
+			var padre = document.createElement('p'); //creamos una etiqueta p llamada padre
+			var clon = this.cloneNode(true);  //clonamos el circulo que acabamos de cojer
+			padre.appendChild(clon);  //hacemos que el elemento clonado sea hijo del padre
+			e.dataTransfer.setData('text', padre.innerHTML); //pasamos su HTML a cadena de texto
+		}
+
+		function manejarDrop(e){
+			e.preventDefault(); //resetea los comportamientos del navegador para que podamos incorportar los nuestros propios
+			var datos = e.dataTransfer.getData('text'); //recuperamos el nodo creado en dragIniciado
+			this.innerHTML += datos;
+
+			circuloArrastrandose.parentNode.removeChild(circuloArrastrandose);  //borramos el circulo de origen
+
+			this.classList.remove('over');
+		}
+
+		function dragFinalizado(e){  //al acabarel drag que vuelva a su color normal
+			this.style.backgroundColor ='red';
+		}
+
+		function dragSobreDestino(e){
+			e.preventDefault(); //resetea los comportamientos del navegador para que podamos incorportar los nuestros propios
+			this.classList.add('over'); //que se añada esta clase
+			return false;
+		}
+
+		function dragSalioDestino(e){
+			this.classList.remove('over');
+		}
+
+	</script>
+</body>
+</html>

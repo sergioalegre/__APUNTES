@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WEB SPEECH API HTML5</title>
+	<style>
+		#container{
+			width: 200px;
+			height: 30px;
+			position: relative;
+			background-color: #eee;
+		}
+		#porcentaje{
+			width: 50%;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+			position: absolute;
+			background-color: rgb(200,50,50); /*rojo*/
+		}
+	</style>
+</head>
+<body>
+	<h1>WEB SPEECH API HTML5</h1>
+	<h4>Mediante speech recognition de JS, solo en servidor y SOLO EN Chrome. NECESITA CONEXIÓN A INTERNET</h4>
+	<video id="video" height="300">
+		<source src='9 Web Speech.mp4' type="video/mp4">
+	</video>
+	<br><br>
+	<button id="play">></button>
+	<button id="pausa">||</button>
+	<button id="stop">stop</button>
+	<br>
+	<div id="container">
+		<div id="porcentaje"></div>
+	</div>
+	<br>Volumen: <input type='range' id='volumen' min='0' max='1' step='0.1' value='1'>
+	<br>currentTime:<span id="tiempo"></span>
+	<br>Has dicho <output id="oido"></output>  <!-- output es la manera semantica de poner un span donde es el navegador quien escribe, no nosotros -->
+
+	<script>
+		window.addEventListener('load', init);
+
+		var video,volumen;
+
+		function init()
+		{
+			video = document.getElementById("video");
+			volumen = document.getElementById("volumen");
+
+			document.getElementById('play').addEventListener('click', Reproducir);
+			document.getElementById('pausa').addEventListener('click', Pausar);
+			document.getElementById('stop').addEventListener('click', Parar);
+
+			volumen.addEventListener('change',manejarVolumen);
+			video.addEventListener('timeupdate', actualizarTiempo);
+			video.addEventListener('loadedmetadata', asignarDuracion);
+
+			var sr = new webkitSpeechRecognition();  //solo para Chrome y con prefijo de momento
+			sr.continuous = true; //es false si solo es para 1 comando, como queremos poder darle varias ordenes sin recargar => true
+			sr.interimResults = true; //que reconozca mientras hable o que reconozca cada espacio de tiempo en el que no se hable
+			sr.lang ="es"; //en que idioma ha de interpretarlos
+			sr.start();
+			sr.onresult = function (e){ //cuando haya oido algo, lo almacena en 'e' asi que lo recorremos
+				for(var i=e.resultIndex; i<e.results.length; i++){
+
+					oido.innerHTML = e.results[i].isFinal+"--"+e.results[i][0].transcript;  //dice si es true (no ha escuchado nada despues) o false  -- y lo que ha entendido
+
+					if(e.results[i].isFinal){ //recorremos lo escuchado y nos quedamos con lo último
+						var valor = e.results[i][0].transcript.replace(/\s/g, ""); //[0] es la primera interpretación que da el navegador. La expresión regular quitar espacios
+						if (valor == "reproducir" || valor == "iniciar" || valor == "play"){
+							Reproducir();
+						}
+						if (valor == "parar" || valor == "detener" || valor == "stop"){
+							Parar();
+						}
+						if (valor == "pausa" || valor == "pausar"){
+							Pausar();
+						}
+						if (valor == "silencio" || valor == "silenciar"){
+							volumen.value = 0;
+							manejarVolumen();
+						}
+						if (valor == "subir volumen" || valor == "subir"){
+							volumen.value += 0.1;
+							manejarVolumen();
+						}
+					}
+				}
+			}
+		}
+
+		function Reproducir(){
+			video.play();
+		}
+
+		function Pausar(){
+			video.pause();
+		}
+
+		function Parar(){
+			video.pause();
+			video.currentTime = 0;
+		}
+
+		function asignarDuracion(){
+
+		}
+
+		function actualizarTiempo(){
+			document.getElementById('tiempo').innerHTML = video.currentTime;
+			valor = (video.currentTime * 100) / video.duration;
+			document.getElementById('porcentaje').style.width = valor + '%';
+		}
+
+		function manejarVolumen(){
+			video.volume = volumen.value;
+		}
+	</script>
+</body>
+</html>

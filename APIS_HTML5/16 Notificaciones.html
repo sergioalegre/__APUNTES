@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notification API</title>
+	<meta charset='utf-8'>
+</head>
+<body>
+	<h1>Notification API</h1>
+	<div id="aviso"></div>
+	<p>¿Quieres activar las notificaciones?</p>
+	<button id='activar_notificacion'>Activar notificaciones</button>
+	<script>
+		if(!window.Notification){
+			alert("Este navegador no soporta Notification API");
+		}
+
+		window.addEventListener('load', init);
+
+		function init(){
+			document.getElementById('activar_notificacion').addEventListener('click', function(){
+				if(Notification.requestPermission(function(){  //requestPermission solo funciona lanzado por un evento del usuario con el click, solo lo necesita una vez, a partir de ahí se puede usar siempre que se quiera
+					crearNotificacion();
+				}));
+			}, false);
+		}
+
+		function crearNotificacion(){
+			var mensaje = new Notification("Título",{icon:"icon.png", body:"este es el cuerpo del mensaje que verás"});
+
+			mensaje.addEventListener('display', function(){
+				document.getElementById('aviso').innerHTML ="Mostrando Notification";
+			},false);
+
+			mensaje.addEventListener('close', function(){
+				document.getElementById('aviso').innerHTML ="Has cerrado la Notification";
+			},false);
+		}
+	</script>
+</body>
+</html>

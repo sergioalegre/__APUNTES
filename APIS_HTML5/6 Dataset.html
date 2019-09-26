@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dataset HTMl5</title>
+</head>
+<body>
+	<h1>Dataset HTMl5</h1>
+	<h4>Atributos data en HTML5</h4>
+	<!-- todas las etiquetas data empiezan por data- , pueden tener solo identificador (data-id) o identificador y valor (data-id="valor") -->
+	<div id="elemento" data-a="ejemplo"></div> 
+	<div data-a="ejemplo"></div>
+
+	<script>
+		window.addEventListener('load', init);
+
+		function init()
+		{
+			var e = document.getElementById("elemento"); //para seleccionar uno solo
+			var elementos = document.querySelectorAll('[data-a]'); //para seleccionar varios
+			// $('#elemento').data('a','nuevo valor'); como se haria en jQuery
+
+			alert(e.dataset.a); //valor actual
+
+			e.dataset.a = "nuevo valor";
+
+			alert(e.dataset.a);  //valor actualizado
+		}
+	</script>
+</body>
+</html>

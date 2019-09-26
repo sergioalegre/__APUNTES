@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LocalStorage y JSON</title>
+	<meta charset='utf-8'>
+	<link rel="stylesheet" href="5 localstorage y json.css">
+</head>
+<body>
+	<div class="container">
+		<div class="media_pantalla">
+			<h1>LocalStorage y JSON</h1>
+			<h4>No podemos guardar arrays en localstorage, solo cadenas de texto</h4>
+			<form id='todo_form'>
+				<h3>Actividad:</h3>
+				<input type='text' placeholder='Hacer las compras...' autocomplete='off' id='to_do'>
+				<input type='submit' value='Añadir tarea' id='date'>
+			</form>
+		</div>
+		<div class="media_pantalla">
+			<h3>Cosas por hacer</h3>
+			<ol id='todo_list'>
+			</ol>
+		</div>
+	</div>
+	<script src='5 localstorage y json.js'></script>
+	<script>
+		window.addEventListener('load', init, false);
+
+		var storage;
+		var clave ='tutorial_localstorage';
+
+		function init(){
+			var formulario = document.getElementById('todo_form');
+			storage = new Lista(clave);
+			formulario.addEventListener('submit', agregarActividad, false);  //si en el formulario hay un submit que se llame a la función 
+			actualizarLista(storage.obtenerActividades());
+		}
+		function agregarActividad(e){
+			e.preventDefault();
+			var actividad = document.getElementById('to_do').value;
+
+			if(storage.agregarActividad(actividad)){ //si se agregó correctamente
+				actualizarLista(storage.obtenerActividades());
+			}
+		}
+
+		function actualizarLista(actividades){
+			//localizamos dd ha de escribir
+			var lista = document.getElementById("todo_list");
+
+			//borramos antes de escribir
+			lista.innerHTML = "";
+
+			//escribimos la lista
+			if(actividades != null){
+				for (i in actividades)  //la recorremos
+				{
+					var actividad = actividades[i];
+					var elemento = document.createElement('li');  //por cada item creamos un nuevo nodo de tipo 'li'
+					elemento.innerHTML = actividad;
+					lista.appendChild(elemento);
+				}
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Request Animation Frame</title>
+	<style>
+		#lienzo{
+			border: solid; width:800px; height:600px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Request Animation Frame</h1>
+	<canvas id='lienzo'></canvas>
+	<script>
+		var ctx,canvas;
+		var x=0,y=0,v_x=5,v_y=5;
+
+		window.addEventListener('load',init);
+
+		window.requestAnimationFrame = (function(){
+			return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrane ||
+			function(f){
+				window.setTimeout(f,1000/60);
+			}
+		})();  //haciendo (function(){})(); se autoejecuta la función
+
+		function init(){
+			canvas = document.getElementById('lienzo');
+			ctx = canvas.getContext('2d');
+			draw();
+		}
+		
+		function draw(){  //Aqui va la animación en sí
+			ctx.clearRect(0,0,canvas.width,canvas.height); //que el circulo al avanzar borre todo y empieze a dibujar, sin esta línea el circulo deja estela al avanzar
+			ctx.beginPath();
+			ctx.arc(x,y,10,0,Math.PI*2); //circulo empieza en 0,0 con radio 10, con angulo inicial 0
+			ctx.closePath(); //cerramos circulo
+			ctx.fill();  //rellenanos circulo
+			x += v_x;
+			y += v_y;
+			if(x < 0 || x > canvas.width) v_x = -v_x;
+			if(y < 0 || y > canvas.height) v_y = -v_y;
+			requestAnimationFrame(draw); //se llama a si misma en cada frame para seguir asi ejecutandose
+		}
+	</script>
+</body>
+</html>

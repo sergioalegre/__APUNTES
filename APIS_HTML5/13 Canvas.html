@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas API</title>
+	<style>
+			#lienzo{
+				border: solid;
+			}
+	</style>
+</head>
+<body>
+	<canvas id="lienzo" width='800' height='600'></canvas>
+	<script>
+		window.addEventListener('load',init);
+		function init(){
+			var canvas = document.getElementById('lienzo');
+			var ctx = canvas.getContext('2d');
+
+			//Rectangulo
+			//ctx.fillRect(100,100,200,200); //coordX coordY, ancho, alto
+			//ctx.fillStyle = 'rgb(200,50,50)';
+
+			ctx.strokeStyle = 'blue';
+			ctx.lineWidth = 10;
+			ctx.beginPath();
+			ctx.moveTo(100,100);
+			ctx.lineTo(200,10);
+			ctx.lineTo(300,100);
+			ctx.closePath();
+			ctx.fill();
+			ctx.lineWidth = 2;
+			ctx.font = "36pt Arial";
+			ctx.strokeText("Triangulo",135,140);
+
+			console.log(ctx);
+		}
+	</script>
+</body>
+</html>

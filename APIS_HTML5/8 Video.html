@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Video API HTML5</title>
+	<style>
+		#container{
+			width: 200px;
+			height: 30px;
+			position: relative;
+			background-color: #eee;
+		}
+		#porcentaje{
+			width: 50%;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+			position: absolute;
+			background-color: rgb(200,50,50); /*rojo*/
+		}
+	</style>
+</head>
+<body>
+	<h1>Video API HTML5</h1>
+	<video id="video" height="300">
+		<source src='8 video.mp4' type="video/mp4">
+	</video>
+	<br><br>
+	<button id="play">></button>
+	<button id="pausa">||</button>
+	<button id="stop">stop</button>
+	<br>
+	<div id="container">
+		<div id="porcentaje"></div>
+	</div>
+	<br>Volumen: <input type='range' id='volumen' min='0' max='1' step='0.1' value='1'>
+	<br>currentTime:<span id="tiempo"></span>
+
+	<script>
+		window.addEventListener('load', init);
+
+		var video,volumen; //vartiables globales
+
+		function init()
+		{
+			video = document.getElementById("video");
+			volumen = document.getElementById("volumen");
+
+			document.getElementById('play').addEventListener('click', Reproducir);
+			document.getElementById('pausa').addEventListener('click', Pausar);
+			document.getElementById('stop').addEventListener('click', Parar);
+
+			volumen.addEventListener('change',manejarVolumen);
+			video.addEventListener('timeupdate', actualizarTiempo);
+			video.addEventListener('loadedmetadata', asignarDuracion);
+		}
+
+		function Reproducir(){
+			video.play();
+		}
+
+		function Pausar(){
+			video.pause();
+		}
+
+		function Parar(){
+			video.pause();
+			video.currentTime = 0;
+		}
+
+		function asignarDuracion(){  //para saber la duración del vídeo
+
+		}
+
+		function actualizarTiempo(){
+			document.getElementById('tiempo').innerHTML = video.currentTime;
+			valor = (video.currentTime * 100) / video.duration;  // el 100% es video.duration, hacemos una regla de 3
+			document.getElementById('porcentaje').style.width = valor + '%';
+		}
+
+		function manejarVolumen(){
+			video.volume = volumen.value;
+		}
+	</script>
+</body>
+</html>

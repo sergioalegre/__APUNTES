@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>getUserMedia API</title>
+</head>
+<body>
+	<h1>getUserMedia API</h1>
+	<h4>Acceso a la cámara y micrófono, con navigator</h4>
+	<video id="video"></video>
+	<script>
+		window.addEventListener('load',init);
+		function init(){
+
+			var video = document.getElementById('video');
+
+			navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+
+			if (navigator.getUserMedia){  //si lo soporta
+				navigator.getUserMedia({ //reglas o constrains, en este caso video y audio
+					video: true,
+					audio: true
+				}, function(stream){  //en caso de exito
+					video.src = window.URL.createObjectURL(stream);
+					video.play();
+				}, function(e){  //en caso de error
+					console.log(e);
+				})
+			}
+			else alert("El navegador no soporta getUserMedia")
+		}
+	</script>
+</body>
+</html>

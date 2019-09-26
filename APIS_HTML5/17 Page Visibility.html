@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Visibility API</title>
+	<meta charset='utf-8'>
+</head>
+<body>
+	<h1>Page Visibility API con el evento visibilitychange</h1>
+	<h4>Puede controlar que pasa en tu página cuando el usuario cambia de pestaña, prueba a cambiar de pestaña sin cerrar esta</h4>
+	<h4>y mira a la esquina inferior derecha del navegador</h4>
+	<script>
+		if(!window.Notification){
+			alert("Este navegador no soporta Notifications API");
+		}
+
+		var mensaje;
+		var array_prefijos = Prefijos();
+		if(array_prefijos){
+			var hidden = array_prefijos[0], visibilitychange = array_prefijos[1];
+		}
+		else{
+			alert("Tu navegador no soporta funcionalidades de esta página");
+		}
+
+		window.addEventListener('load', init);
+
+		function init(){
+			document.addEventListener(visibilitychange, manejarVisibilidad, false); //Cuando cambie la visibilidad de la página llamamos a la funcion manejarVisibilidad
+		}
+
+		function manejarVisibilidad(){
+			if(document[hidden]){ //si no esta viendo nuestra página
+				crearNotificacion();
+				return;
+			}
+			mensaje.cancel(); //si el usuario vuelve a nuestra página document[visible]
+		}
+
+		function Prefijos(){
+			var prefijos =["webkit","moz","ms"];
+			if("hidden" in document) return ["hidden", "visibilitychange"]; //intento 1º - si lo soporta el navegador
+			for (i in prefijos){											//intento 2º - si funciona con algun prefijo
+				var prefijo = prefijos[i];
+				var opcion = prefijo + "Hidden";
+				var opcion_vs = prefijo + "visibilitychange";
+				if (opcion in document) return [opcion, opcion_vs];
+			}
+			return null; 													//sino, el API no este soportado
+		}
+
+		function crearNotificacion(){
+			mensaje = new Notification("Vuelve",{icon:"icon.png", body:"esperamos que vuelvas pronto a nuestra pestaña"});
+		}
+	</script>
+</body>
+</html>

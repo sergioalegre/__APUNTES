@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>History API</title>
+</head>
+<body>
+	<h1>History API</h1>
+	<h4>History API para modificar el historial del navegador</h4>
+
+	<script>
+		//ir adelante o atras
+		window.history.back();
+		window.history.forward();
+		window.history.go(-2); //recibe un parametro entero. -2 es 2 back, 2 es 2 forward.
+
+		//saber la pila de historia de esta pestaña
+		window.history.length;
+
+		//pushState
+		window.history.pushState(null, "","/nueva");  //cambia en la barra del navegador la URL en la que dice que estamos
+
+		//replaceState
+		window.history.replaceState(null, "","/nueva")  //lo mismo que push pero sin variar el nº de historial de páginas visitadas
+
+		//se dispara cuando hacemos back o forward o go
+		window.onpopstate = function(e){
+			alert("has cambiado de URL");
+		}
+	</script>
+</body>
+</html>
