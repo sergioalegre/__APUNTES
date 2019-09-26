@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+
+		//Bucle for en un array normal
+		var paises = ["España", "Argentina", "Uruguay"];
+
+		for (var x=0; x<paises.length; x++)
+		{
+			document.write(paises[x] + "<br>");
+		}
+
+		//Bucle for in en un array asociativo
+		var productos = new Array();
+
+		productos["zapato"] = 30;
+		productos["camisa"] = 25;
+		productos["corbata"] = 15;
+
+		for (var clave in productos)
+		{
+			document.write("Producto: " + clave + " precio: " + productos[clave] + "<br>");
+		}
+
+		//Bucle while
+		var nombres = ["Pepe", "Juan", "Ana"];
+		var x=0;
+
+		while (x<nombres.length)
+		{
+			document.write(nombres[x] + "<br>");
+			x++;
+		}
+
+
+
+	</script>
+	<meta charset="UTF-8">
+	<title>BUCLES FOR, FOR IN, WHILE</title>
+</head>
+<body>
+	
+</body>
+</html>

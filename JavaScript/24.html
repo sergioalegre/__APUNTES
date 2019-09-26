@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+
+		//Metodo onmousemove()
+		window.onload = function()
+		{
+			document.onmousemove = function(e)
+			{
+				var contenedor = document.getElementById("contenedor");
+				contenedor.innerHTML = "Left: " + e.pageX + " Top: " + e.pageY;
+				contenedor.style.left = e.pageX + "px";
+				contenedor.style.top = e.pageY + "px";
+			}
+		}
+	
+	</script>
+
+	<style>
+		#contenedor{
+			position: absolute;
+		}
+	</style>
+
+	<meta charset="UTF-8">
+	<title>Metodo onmousemove()</title>
+</head>
+<body>
+	<div id="contenedor"></div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+
+		//Acceder a un determinado caracter de un string
+		var string = "Coche";
+		var caracter = string[3];
+		document.write(caracter + "<br>");
+
+		//Inclusion de comillas en un string
+		var string = "Hola 'mundo'";
+		document.write(string + "<br>");
+		var string2 = "Hola \"mundo\"";
+		document.write(string2 + "<br>");
+
+		//Obtener longitud de un string
+		var texto = "Cuenta que paso";
+		var longitud = texto.length;
+		document.write(longitud + "<br>");
+
+		//Encontrar la primera posicion de un string dentro de un string
+		var string ="cadena donde buscaremos";
+		var posicion = string.indexOf("buscare");
+		document.write(posicion + "<br>");
+
+		//Realizar una busqueda con match()
+		var string = "Buscando a Nemo";
+		if (string.match("Juan"))
+		{
+			document.write("Encontrado" + "<br>");
+		}
+		else
+		{
+			document.write("NO Encontrado" + "<br>");
+		}
+
+		//Reemplazar strings con replace()
+		var string = "Buscando a Nemo y a Nemo";
+		var reemplazar = string.replace("Nemo","Juan"); //para reemplazar la primera vez
+		//var reemplazar = string.replace(/Nemo/g,"Juan"); //para reemplazar en todo el string
+		//var reemplazar = string.replace(/nemo/gi,"Juan"); //para reemplazar en todo el string ignorando mayus/minus
+		document.write(reemplazar + "<br>");
+
+		//Convertir string de minuscular a mayusculas con toUpperCase() y toLowerCase()
+		var string ="texto en minusculas";
+		var mayusculas = string.toUpperCase();
+		document.write(mayusculas + "<br>");
+
+		var string2 ="ESTA EN MAYUSCULAS";
+		var minusculas = string2.toLowerCase();
+		document.write(minusculas + "<br>");
+
+		//Convertir array en string con split()
+		var string = "uno dos tres cuatro cinco";
+		var array = string.split(" "); //el separador es el espacio
+		for (var x=0; x< array.length; x++)
+		{
+			document.write(array[x] + "<br>");
+		}
+
+		//Buscar substring dentro de string con substr()
+		var string = "Hola Mundo";
+		var substring = string.substr(0,4);
+		document.write(substring + "<br>");
+
+		var string2 = "Hola Mundo";
+		var substring2 = string2.substr(-5); //para ir del final al inicio con negativo
+		document.write(substring2 + "<br>");
+
+
+	</script>
+	<meta charset="UTF-8">
+	<title>MANEJAR STRINGS</title>
+</head>
+<body>
+	
+</body>
+</html>

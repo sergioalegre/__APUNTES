@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+
+		//Input Radio y Checkbox
+		window.onload = function()
+		{
+			//Input radio
+			var btn_radio = document.getElementById("btn-radio");
+			btn_radio.onclick = function()
+			{
+				var input_radio = document.formulario.input_radio; //es un array
+				for (x=0; x < input_radio.length; x++)
+				{
+					if (input_radio[x].checked)
+					{
+						alert(input_radio[x].value)
+					}
+				}
+			}
+
+			//checkbox
+			var btn_checkbox = document.getElementById("btn-checkbox");
+			btn_checkbox.onclick = function()
+			{
+				if(document.formulario.input_checkbox.checked) //devuelve True o False
+				{
+					alert("Has aceptado");
+				}
+				else
+				{
+					alert("NO has aceptado");;
+				}
+			}
+		}
+
+
+	</script>
+
+	<meta charset="UTF-8">
+	<title>Input Radio y Checkbox</title>
+</head>
+<body>
+	<form name="formulario">
+		Uno: <input type="radio" name="input_radio" value="1"> <br>
+		Dos: <input type="radio" name="input_radio" checked value="2"> <br>
+		Tres: <input type="radio" name="input_radio" value="3"> <br>
+
+		<button type="button" id="btn-radio">Obtener valor del input radio seleccionado</button> <br>
+
+		Aceptar los terminos <input type="checkbox" name="input_checkbox">  <br>
+		<button id="btn-checkbox">Saber si el checkbox esta seleccionado</button>
+	</form>
+</body>
+</html>

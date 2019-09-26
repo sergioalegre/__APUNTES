@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+
+		//Método setInterval()
+		var imagenes = ["foto1.jpg", "foto2.jpg"];
+
+		var x = 0;
+
+		function slider()
+		{
+			document.getElementById("imagen").src = imagenes[x];
+			x++;
+			if (x > imagenes.length-1) //numero de elementos del array imagenes
+			{
+				x = 0;
+			}
+		}
+
+		var temporizador = setInterval("slider()", 1500);
+
+		function parar()
+		{
+			clearInterval(temporizador);
+		}
+
+		function iniciar()
+		{
+			temporizador = setInterval("slider()", 1500);
+		}
+
+
+		
+	</script>
+
+	<meta charset="UTF-8">
+	<title>Método setInterval()</title>
+</head>
+<body>
+	<img src="foto1.jpg" id="imagen" width="35%">
+	<button type="button" onclick="parar()">Parar</button>
+	<button type="button" onclick="iniciar()">Iniciar</button>
+</body>
+</html>

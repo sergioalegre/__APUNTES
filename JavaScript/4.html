@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+
+		//dos formas de crear arrays sencillos
+		var nombres = new Array("Pepe", "Juan", "Jose"); //forma1
+		var nombres2 = ["Pepe", "Juan", "Jose"];  //forma2
+
+		document.write(nombres[1]+"<br>");
+		document.write(nombres2[1]+"<br>");
+
+		//arrays asociativos
+		var monedas = new Array();
+		monedas["España"]="Euro";
+		monedas["EEUU"]="Dolar";
+
+		document.write(monedas["España"] + "<br>"); //forma de acceso1
+		document.write(monedas.EEUU + "<br>");  //forma de acceso2
+
+		//arrays multidimensionales
+		var usuarios =[["Pepe", 23], ["Juan", 25]];
+		document.write(usuarios[0][1] + "<br>");
+
+	</script>
+	<meta charset="UTF-8">
+	<title>Arrays</title>
+</head>
+<body>
+	
+</body>
+</html>

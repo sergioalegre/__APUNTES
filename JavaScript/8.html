@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+
+		//OBJETOS
+		function coche()
+		{
+			var self = this;
+			self._color = "Azul";
+			self._puertas = 5;
+		}
+
+		coche.prototype.color = function(color) //para poder cambiar el color
+		{
+			if (color == undefined)
+			{
+				self._color = self._color;
+			}
+			else
+			{
+				self._color = color;
+			}
+			return self._color;
+		}
+
+		coche.prototype.puertas = function(puertas) // para poder cambiar el nº de puertas
+		{
+			if (puertas == undefined)
+			{
+				self._puertas = self._puertas;
+			}
+			else
+			{
+				self._puertas = puertas;
+			}
+			return self._puertas;
+		}
+
+		coche.prototype.ruedas = function() //las puertas son siempre 4
+		{
+			var ruedas = 4;
+			return ruedas;
+		}
+
+	</script>
+
+	<script>
+		var car = new coche();
+		document.write("Color: " + car.color() + "<br>");
+		document.write("Puertas: " + car.puertas() + "<br>");
+		document.write("Ruedas: " + car.ruedas() + "<br>");
+		// document.write("Color: " + car.color("Negro") + "<br>");
+		// document.write("Puertas: " + car.puertas(3) + "<br>");
+		// document.write("Ruedas: " + car.ruedas() + "<br>");
+	</script>
+
+	<meta charset="UTF-8">
+	<title>OBJETOS</title>
+</head>
+<body>
+	
+</body>
+</html>

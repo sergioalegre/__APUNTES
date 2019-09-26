@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+
+		//Metodo createElement()
+		window.onload = function()
+		{
+			var button = document.createElement("button");
+			button.innerHTML = "Crear elemento";
+			button.setAttribute("id", "btn");
+
+			document.body.appendChild(button);
+
+			var boton = document.getElementById("btn");
+			boton.onclick = function()
+			{
+				alert("Has pulsado y le voy a eliminar");
+				document.body.removeChild(btn);
+			}
+		}
+
+	</script>
+
+	<meta charset="UTF-8">
+	<title>Metodo createElement()</title>
+</head>
+<body>
+
+</body>
+</html>

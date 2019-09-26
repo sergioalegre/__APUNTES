@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+
+		//setTimeout()
+		var temporizador = setTimeout("reloj()", 1000);
+		function reloj()
+		{
+			var tiempo = new Date();
+			var horas = tiempo.getHours();
+			var minutos = tiempo.getMinutes();
+			var segundos = tiempo.getSeconds();
+
+			document.getElementById("hours").innerHTML = horas;
+			document.getElementById("minutes").innerHTML = minutos;
+			document.getElementById("seconds").innerHTML = segundos;
+			temporizador = setTimeout("reloj()", 1000);
+
+			//para que horas, minutos y segundos salgan siempre con dos cifras
+			var str_horas = new String(horas);
+			if(str_horas.length ==1)
+			{
+				document.getElementById("hours").innerHTML = "0" + str_horas;
+			}
+			var str_minutos = new String(minutos);
+			if(str_minutos.length ==1)
+			{
+				document.getElementById("minutes").innerHTML = "0" + str_minutos;
+			}
+			var str_segundos = new String(segundos);
+			if(str_segundos.length ==1)
+			{
+				document.getElementById("seconds").innerHTML = "0" + str_segundos;
+			}
+		}
+
+		function parar()
+		{
+			clearTimeout(temporizador);
+		}
+		
+		function arrancar()
+		{
+			temporizador = setTimeout("reloj()", 1000);
+		}
+		
+	</script>
+
+	<meta charset="UTF-8">
+	<title>Método setTimeout()</title>
+</head>
+<body>
+	<span id="hours"></span> : <span id="minutes"></span> : <span id="seconds"></span>
+
+	<button type="button" onClick="parar();">Parar tiempo</button>
+
+	<button type="button" onClick="arrancar();">Arrancar tiempo</button>
+</body>
+</html>

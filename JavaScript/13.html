@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+
+		//Objeto WINDOW
+		var width = window.screen.width;
+		var height = window.screen.height;
+		document.write("Ancho: " + width + ", Alto: " + height + "<br>");
+
+		var navegador = window.navigator.userAgent;
+		document.write(navegador + "<br>");
+
+		//window.location.href = "http://www.google.es"; 
+
+		function abrir_ventana()
+		{
+			window.open("http://www.google.es"); //ventane emergente normal
+			window.open("http://www.google.es", "_blank", "width=300, height=300"); //ventane popup
+
+		}
+
+		function crear_ventana()
+		{
+			var ventana = window.open(",","width=300", "height=300");
+			ventana.document.write("Estoy escribiendo en la ventana");
+
+		}
+		
+
+		
+	</script>
+
+	<meta charset="UTF-8">
+	<title>Objeto WINDOW</title>
+</head>
+<body>
+	<button type="button" onclick="abrir_ventana()">Abrir Ventana</button>
+	<button type="button" onclick="crear_ventana()">Crear Ventana</button>
+</body>
+</html>

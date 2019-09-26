@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+
+		//Primera manera de declarar funciones
+		mensaje = function(){
+			return "Hola soy una funcion";
+		}
+
+		document.write(mensaje() + "<br>");
+
+
+		//segunda forma
+		function otro_mensaje(){
+			var string ="Hola mundo";
+			return string;
+		}
+
+		document.write(otro_mensaje() + "<br>");
+
+
+		//funcion con parametros
+		function suma (numero1, numero2){
+			var sumar = numero1 + numero2;
+			return sumar;
+		}
+
+		document.write(suma(10,15) + "<br>");
+
+
+		//funcion con parametros opcionales
+		function multiplicar (numero, opcional){
+			if (opcional == undefined)
+			{
+				opcional = 2;
+			}
+			return numero * opcional;
+		}
+
+		document.write(multiplicar(3) + "<br>"); //solo pasamos un parametro
+		//document.write(multiplicar(3,8) + "<br>");  //pasamos dos
+
+
+		//funcion con array como parametro
+		function imprime_array(array){
+			var elementos ='';
+			for (x=0; x<array.length; x++)
+			{
+				elementos += array[x] + "<br>";
+			}
+			return elementos;
+		}
+
+		document.write(imprime_array(["a","b","c"]) + "<br>");
+
+	</script>
+	<meta charset="UTF-8">
+	<title>FUNCIONES</title>
+</head>
+<body>
+	
+</body>
+</html>

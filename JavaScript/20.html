@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+
+		//Manipular atributos de elementos
+		window.onload = function()
+		{
+			var btn = document.getElementById("btn");
+			btn.onclick = function()
+			{
+				var box_style = document.getElementById("box").getAttribute("style");
+				alert(box_style);
+			}
+		}
+	
+	</script>
+
+	<meta charset="UTF-8">
+	<title>Manipular atributos de elementos</title>
+</head>
+<body>
+	<div id="box" style="background: red; color: white;"></div>
+	<button id="btn" type="button">Obtener valor de atributo style</button>
+</body>
+</html>

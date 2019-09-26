@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+
+		//getElementsByTagName()
+		window.onload = function()
+		{
+			var div = document.getElementsByTagName("div");
+			alert(div[0].innerHTML);
+
+			div[1].style.background = "black";
+			div[1].style.color = "white";
+
+			div[2].innerHTML = "CONTENIDO CAMBIADO";
+		}
+
+
+	
+	</script>
+
+	<meta charset="UTF-8">
+	<title>Método getElementsByTagName()</title>
+</head>
+<body>
+	<div>Contenido 1</div>
+	<div>Contenido 2</div>
+	<div>Contenido 3</div>
+</body>
+</html>

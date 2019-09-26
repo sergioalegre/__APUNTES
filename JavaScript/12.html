@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+
+		//MANEJAR Fechas con objeto DATE
+		var fecha = new Date(); //instanciamos
+
+		var dia_semana = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
+		var mes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+		var dame_fecha = "Hoy " + dia_semana[fecha.getDay()] + ", " + fecha.getDate() + " de " + mes[fecha.getMonth()] + " del " + fecha.getFullYear();
+
+		document.write("<p>" + dame_fecha + "</p>");
+
+		var hora = new Date();
+		var dame_hora = hora.getHours() + ":" + hora.getMinutes() + ":" + hora.getSeconds();
+		document.write(hora);
+		
+	</script>
+
+	<meta charset="UTF-8">
+	<title>MANEJAR Fechas con objeto DATE</title>
+</head>
+<body>
+	
+</body>
+</html>
