@@ -1,0 +1,32 @@
+<!-- Select required dentro de un Form  -->
+    <select name="id_categoria" required class="select" data-style="btn-gr-gray">
+        <option value="" class="disabled">Seleccionar categoria</option> <!-- value="" para que funcione el required del select-->
+        <?php foreach ($categorias as $categoria) { ?>
+            <option value="<?php echo $categoria['id_categoria']; ?>"><?php echo $categoria['categoria']; ?></option> 
+        <?php } ?>
+    </select>
+
+
+<!-- Javascript dentro de PHP -->
+	echo "
+	    <script language=’JavaScript’>
+	    alert(‘JavaScript dentro de PHP’);
+	    </script>
+	    ";
+
+
+<!-- ckeditor con fileman en windows -->
+    <!-- en el html del formulario -->
+        <textarea required name="texto" id="texto" class="ckeditor" ></textarea><br> <!-- class="ckeditor" y el id es el del script de abajo -->
+        <script>
+            var roxyFileman = 'inc/ckeditor/plugins/fileman/index.html'; 
+
+           CKEDITOR.replace( 'texto',{filebrowserBrowseUrl:roxyFileman,
+                                        filebrowserImageBrowseUrl:roxyFileman+'?type=image',
+                                        removeDialogTabs: 'link:upload;image:upload'});
+        </script>
+
+    <!-- en ckeditor/plugins/fileman/conf.json cambiamos estos dos parametros -->
+        FILES_ROOT":          "/_optionalcar/fotos_blog", <!-- /proyecto/folder_upload -->
+        ...
+        "INTEGRATION":         "ckeditor",
