@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<title>Strings, obtener el contenido</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+		
+		$(function(){
+
+			$("#btn-texto").on("click", function(){
+				var texto = $("#contenedor").text();
+				alert(texto);
+			});
+
+			$("#btn-html").on("click", function(){
+				var html = $("#contenedor").html();
+				alert(html);
+			});
+
+			$("#btn-value").on("click", function(){
+				var val = $("#campo").val();
+				alert(val);
+			})
+
+		});
+
+	</script>
+</head>
+<body>
+
+	<div id="contenedor">
+		<strong>Contenido del contenedor</strong>
+	</div>
+
+	<button type="button" id="btn-texto">Obtener solo el texto</button>
+
+	<button type="button" id="btn-html">Obtener todo el HTML</button>
+
+	Campo de texto: <input type="text" id="campo" value="">
+	<button type="button" id="btn-value">Obtener el value</button>
+
+</body>
+</html>

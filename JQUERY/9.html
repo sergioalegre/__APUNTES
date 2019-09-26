@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+	<title>Animate</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+
+		$(function(){
+
+			$("#btn-1").on("click", function(){
+				if($(this).val()=="horizontal")
+				{
+					$(this).val("Animacion en curso");
+					$("#contenedor").animate({left:"+=100"}, 1000).animate({left:"-=100"}, 1000, function(){
+							$("#btn-1").val("horizontal");
+					});
+				}
+			});
+
+			$("#btn-2").on("click", function(){
+				if($(this).val()=="vertical")
+				{
+					$(this).val("Animacion en curso");
+					$("#contenedor").animate({top:"+=100"}, 1000).animate({top:"-=100"}, 1000, function(){
+							$("#btn-2").val("vertical");
+					});
+				}
+			});
+
+			$("#btn-3").on("click", function(){
+				if($(this).val()=="dimension")
+				{
+					$(this).val("Animacion en curso");
+					$("#contenedor").animate({width:"+=100"}, 1000).animate({height:"-=100"}, 1000, function(){
+							$("#btn-3").val("dimension");
+					});
+				}
+			});
+
+		});
+
+	</script>
+</head>
+<body>
+
+	<style>
+	#contenedor{
+		position: relative;
+		width: 250px;
+		height: 250px;
+		background: black;
+		border-radius: 50%;
+	}
+	</style>
+
+	<input type="button" id="btn-1" value="horizontal">
+	<input type="button" id="btn-2" value="vertical">
+	<input type="button" id="btn-3" value="dimension">
+	<div id="contenedor"></div>	
+
+</body>
+</html>

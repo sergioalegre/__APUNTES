@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<title>AJAX: método POST</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+
+		//VAMOS A CARGAR DENTRO DE UN DIV EL COONTENIDO DE UN HTML CON UNA PETICION POST
+
+		$(function(){
+
+			//cargar datos de un fichero por ajax post
+			$("#btn-1").on("click", function(){
+				$.post("23-datos-post.html", function(datos){
+					$("#contenedor-1").html(datos);
+				});
+			});
+
+			//enviar un formulario por ajax post
+			$("#btn-2").on("click", function(){
+				var _nombre = $("#nombre").val();
+				var _apellidos = $("#apellidos").val();
+				$.post("23-datos-post.php", {nombre: _nombre, apellidos:_apellidos}, function (datos){
+					$("#contenedor-2").html(datos);
+				});
+				
+			});
+
+		});
+
+	</script>
+
+
+</head> 
+<body>
+
+	<button type="button" id="btn-1">GARGAR HTML CON AJAX</button>
+	<div id="contenedor-1"></div>
+
+	<form method="post">
+		Nombre: <input type="text" id="nombre" name="nombre"> <br>
+		Apellidos: <input type="text" id="apellidos" name="apellidos"> <br>
+		<button type="button" id="btn-2">Enviar por POST</button>
+	</form>
+
+	<div id="contenedor-2"></div>
+
+</body>
+</html>

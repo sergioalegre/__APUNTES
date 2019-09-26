@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<title>Strings, match, substr</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+
+		var string ="hola";
+		alert(string.substr(0,2)); //desde el principio hasta el segundo caracter
+		//alert(string.substr(-2)); //los dos últimos caracteres
+
+		$(function(){
+
+			$("#btn").on("click", function(){
+				var valor = $("#campo-1").val();
+				if(valor == '')
+				{
+					alert("Error, no has puesto nada");
+				}
+				if(!valor.match(/^[0-9]+$/)) //exp. regular de numeros enteros
+				{
+					alert("No has introducido un entero");
+				}
+				else
+				{
+					$("#form").submit();
+				}
+			});
+
+		});
+
+	</script>
+</head>
+<body>
+
+	<form method="post" id="form">
+		Campo de texto: <input type="text" id="campo-1">
+		<button type="button" id="btn">Validar</button>
+	</form>
+
+</body>
+</html>

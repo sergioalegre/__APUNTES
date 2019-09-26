@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<title>Crear funciones propias</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+
+		//VAMOS A EMULAR LA FUNCIÓN GREP QUE RECORRE UN ARRAY
+
+		//una funcion sencilla
+		$.mensaje = function(saluda){
+
+			if (saluda === undefined)
+			{
+				saluda ="Hola Mundo"
+			}
+			return saluda;
+		}
+
+
+		//una funcion que emula a grep y recorre un array
+		$.miPropioGrep = function(array, callback)
+		{
+			var index ='';
+			var value ='';
+			if( callback === undefined)
+			{
+				callback = function(){};
+			}
+			for(val in array) //recorremos el array
+			{
+				index = val;
+				value = array[val];
+				callback(index, value);
+			}
+		};
+
+		$(function(){
+
+			$("#contenedor-1").text($.mensaje("Hola amigos"));
+
+			var nombres =['pepe', 'antonio', 'juan'];
+			$.miPropioGrep(nombres, function(index, value){
+				$("#contenedor-2").append("index: " + index + " value: " + value + "<br>");
+			});
+
+		});
+
+	</script>
+</head> 
+<body>
+
+	<div id="contenedor-1"></div>
+	<div id="contenedor-2"></div>
+
+</body>
+</html>

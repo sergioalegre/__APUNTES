@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+	<title>Arrays: greap each inArray</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+
+		$(function(){
+
+			var array_1 =["uno","dos", "tres", "cuatro", "cinco"];
+			$.grep(array_1, function(value, index){
+				$("#array_1").append("Index: " + index + " Value: " + value + "<br>");
+			});
+
+
+			$("#lista li").each(function(index){
+				$("#array_2").append("Index: " + index + "Value: " + $(this).text() + "<br>");
+			});
+
+			var array_3 = ["pepe", "antonio", "juan"];
+			$.each(array_3, function(index, value){
+				$("#array_3").append("Index: " + index + " value: " + value + "<br>")
+			});
+
+			var elementos=["azul", "verde", "amarillo"];
+			var color='verde';
+			if($.inArray(color, elementos) > -1)
+			{
+				alert("El color " + color + " ha sido encontrado.")
+			}
+			else
+			{
+				alert("El color " + color + " no ha sido encontrado.")
+			}
+
+		});
+
+	</script>
+</head>
+<body>
+
+	<div id="array_1"></div>
+
+	<ul id="lista">
+		<li>uno</li>
+		<li>dos</li>
+		<li>tres</li>
+		<li>cuatro</li>
+	</ul>
+
+	<div id="array_2"></div>
+	<br> <br>
+	<div id="array_3"></div>
+
+</body>
+</html>

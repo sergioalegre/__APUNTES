@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+	<title>Arrays: pop, push, shift, unshift, indexOf, join, split</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+
+		$(function(){
+
+			var lista = ["uno", "dos", "tres"];
+			lista.pop(); //pop quita el último elemento del array
+			$.grep(lista, function(value, index){ //con grep recorremos el array
+				$("#pop").append("Index: " + index + " valor: " + value + "<br>");
+			});
+
+
+			var lista2=["pepe", "juan", "luis"];
+			lista2.push("manuel"); //push añade un elemento al final
+			$.grep(lista2, function(value, index){
+				$("#push").append("Index: " + index + " valor: " + value + "<br>");
+			});
+
+			var frutas = ["naranjas", "peras", "limones"];
+			frutas.shift();  //elimina el primer elemento
+			$.grep(frutas, function(value, index){
+				$("#frutas").append("Index: " + index + " valor: " + value + "<br>");
+			});
+
+			var frutas2 =["manzanas", "fresas", "aguacates"];
+			frutas2.unshift("guindas"); //añade como primer elemento
+			$.grep(frutas2, function(value, index){
+				$("#frutas2").append("Index: " + index + " valor: " + value + "<br>");
+			});
+
+			
+			var colores=["azul", "verde", "amarillo"];
+			var posicion = colores.indexOf("verde"); //busca la posicion de un elemento en un array
+			$("#colores").text("La posicion de verde en el array es: " + posicion);
+
+
+			var numeros = [0,1,2,3,4,5]; 
+			var string = numeros.join('-'); //convierte array en string, como parametro el separador
+			$("#numeros").text(string);
+
+
+			var string ="uno dos tres cuatro"; 
+			var array = string.split(' '); //convierte string en array siguiendo un patron en este caso el espacio
+			$.grep(array, function(value, index){
+				$("#contenerdor-split").append("Index: " + index + " valor: " + value + "<br>");
+			});
+			
+
+		});
+
+	</script>
+</head>
+<body>
+
+	<div id="pop"></div>
+	<br> <br>
+
+	<div id="push"></div>
+	<br> <br>
+	
+	<div id="frutas"></div>
+	<br> <br>
+
+	<div id="frutas2"></div>
+	<br> <br>
+
+	<div id="colores"></div>
+	<br> <br>
+
+	<div id="numeros"></div>
+	<br> <br>
+
+	<div id="contenerdor-split"></div>
+
+
+</body>
+</html>

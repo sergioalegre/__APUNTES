@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<title>Funciones: parametros opcionales y trabajando con el DOM</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+
+		//VAMOS A REALIZAR UNA FUNCION QUE ANIME, QUE PUEDE O NO TENER PARAMETROS Y QUE TENDRA UN CALLBACK TAMBIEN OPCIONAL PARA REALIZAR DESPUES OTRA ACCION AL TEMINAR
+
+		$.fn.movimiento = function(opciones, CALLBACK)
+		{
+			var defaults = {
+				movimiento: 300,
+				velocidad: 1000
+			};
+			$.extend(defaults, opciones); //que si no recibe parametros tome los de defaults
+
+			if(CALLBACK === undefined)
+			{
+				CALLBACK = function(){};
+			}
+
+			this.animate({left:"+="+defaults.movimiento}, defaults.velocidad).animate({left:"-="+defaults.movimiento}, defaults.velocidad, function(){
+				CALLBACK();
+			});
+
+		};
+
+		$(function(){
+
+			//$("#contenedor").movimiento(); //sin opciones
+
+			//$("#contenedor").movimiento({movimiento:1000, velocidad:500}); //con opciones pero sin callback
+
+			$("#contenedor").movimiento({movimiento:1000, velocidad:500}, function(){ //con opciones y con callback
+				alert("Terminado !!!");
+			}); 
+
+		});
+
+	</script>
+	<style>
+	#contenedor{
+		position: relative;
+		width: 200px;
+		height: 200px;
+		background: green;
+	}
+	</style>
+
+</head> 
+<body>
+
+	<DIV id="contenedor"></DIV>
+
+</body>
+</html>

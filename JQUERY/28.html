@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+	<title>jQuery maxLenght plugin</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script src="28-jqueryplugin-maxlenght/maxLength.js"></script>
+	<script>
+
+
+		$(function(){
+
+			$("#textarea").maxLength(50, {showNumber: "#contador"});
+
+		});
+
+	</script>
+
+
+</head> 
+<body>
+
+	<div id="contador"></div>
+	<textarea id="textarea" cols="30" rows="15"></textarea>
+
+</body>
+</html>

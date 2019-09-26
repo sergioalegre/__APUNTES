@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+	<title>Efectos y animaciones: toggle, show, hide</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+
+		$(function(){
+
+			$("#btn-1").on("click", function(){
+
+				$("#contenido-1").toggle(2000, function(){
+					alert("animacion terminada");
+				});
+			});	
+
+
+			$("#btn-2").on("click", function(){
+				if($(this).val()=="Ocultar")
+				{
+					$("#contenido-2").hide(1000, function(){
+						$("#btn-2").val("Mostrar");
+					});
+				}
+				else
+				{
+					$("#contenido-2").show(2000, function(){
+						$("#btn-2").val("Ocultar");
+					});
+				}
+			});
+
+
+		});
+
+	</script>
+</head>
+<body>
+
+	<input type="button" id="btn-1" value="toggle">
+	<div id="contenido-1">
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</div>	
+
+	<input type="button" id="btn-2" value="Ocultar">
+	<div id="contenido-2">
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</div>
+
+
+	
+</body>
+</html>

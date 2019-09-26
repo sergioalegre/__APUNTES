@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<title>Método AJAX</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+
+		$(function(){
+
+			$("#btn").on("click", function(){
+				var _nombre = $("#nombre").val();
+				var _email = $("#email").val();
+				var parametros = {nombre: _nombre, email: _email};
+				var archivo = "26-ajax.php";
+
+				$.ajax({
+					type: "POST",
+					url: archivo,
+					data: parametros,
+					success: function(datos)
+					{
+						$("#respuesta").html(datos);
+					}
+				});
+			});
+
+		});
+
+
+	</script>
+
+
+</head> 
+<body>
+
+	<form method="post">
+		Nombre: <input type="text" name="nombre" id="nombre"> <br>
+		Email: <input type="text" name="email" id="email"> <br>
+		<button type="button" id="btn">Enviar por POST</button>
+	</form>
+
+	<div id="respuesta"></div>
+
+</body>
+</html>

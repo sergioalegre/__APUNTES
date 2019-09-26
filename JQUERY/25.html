@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+	<title>AJAX: petición a archivo con getJSON</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+		
+		//UN JSON GUARDA LOS DATOS COMO ARRAY MULTIDIMENSIONAL
+
+		$(function(){
+
+			$("#btn").on("click", function(){
+				$.getJSON("25-alumnos.json", function(datos){ //getJSON(deDondeLoCojo, enDondeLoGuardo)
+					var colegio = datos.alumnos.colegio;
+					var ciudad = datos.alumnos.ciudad;
+					var clase1 = datos.alumnos.clase1;
+					var clase2 = datos.alumnos.clase2;
+
+					$("#respuesta").append("<h1>" + colegio + "</h1>");
+					$("#respuesta").append("<h1>" + ciudad + "</h1>");
+
+					$("#respuesta").append("<h3> Clase1 </h3>"); 
+					for(x=0; x<clase1.length; x++)
+					{
+						$("#respuesta").append("Alumno: " + clase1[x][0] + " nota: " + clase1[x][1] + "<br>");
+					}
+
+					$("#respuesta").append("<h3> Clase2 </h3>"); 
+					for(x=0; x<clase2.length; x++)
+					{
+						$("#respuesta").append("Alumno: " + clase2[x][0] + " nota: " + clase2[x][1] + "<br>");
+					}
+
+				});
+			});
+
+		});
+
+
+	</script>
+
+
+</head> 
+<body>
+
+	<button type="button" id="btn">Cargar alumnos mediante getJSON</button>
+	<div id="respuesta"></div>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+	<title>jQuery Validation plugin</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script src="27-jquery-validation/dist/jquery.validate.min.js"></script>
+	<script>
+
+	//JQUERY VALIDATE posibles:
+	// required
+	// minlength
+	// maxlength
+	// email
+	// url
+	// number
+	// digits
+	// equalTo
+
+
+		$(function(){
+
+			//validaciones varias para un campo email, un campo numerico
+			$("#btn").on("click", function(){
+				$("#formulario").validate //validate es el método del plugin
+				({
+					rules:
+					{
+						campo_email: {required: true, email: true, minlength:8},
+						digitos: {required: true, digits: true, maxlength:4},
+						solo_texto: {required: true, queSeanLetras: true}
+					},
+					messages:
+					{
+						campo_email: {required: "El campo es requerido", 
+										email: "Formato de email incorrecto",
+										minlength: "8 caracteres mínimo"},
+						digitos: { required: "El campo es requerido",
+									digits: "Solo acepto dígitos",
+									maxlength: "como mucho 4 caracteres"},
+						solo_texto: { required: "El campo es requerido",
+									queSeanLetras: "Solo admito letras"}
+					}
+				});
+			});
+
+			//nuestro propio método de validacion mediante expresion regular
+			$.validator.addMethod("queSeanLetras", function(value, element){
+				return this.optional(element) || /^[a-zA-Z]+$/.test(value);
+			});
+
+		});
+
+	</script>
+
+
+</head> 
+<body>
+
+	<form method="post" id="formulario">
+		<table>
+			<tr>
+				<td>Email</td>
+				<td> <input type="text" id="email" name="campo_email"></input> </td>
+			</tr>
+			<tr>
+				<td>Digitos</td>
+				<td> <input type="text" id="digitos" name="digitos"></input> </td>
+			</tr>
+			<tr>
+				<td>Caracteres</td>
+				<td> <input type="text" id="solo_textos" name="solo_textos"></input> </td>
+			</tr>
+		</table>
+		<button type="submit" id="btn">Enviar</button>
+	</form>
+
+</body>
+</html>

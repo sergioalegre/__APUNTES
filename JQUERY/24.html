@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+	<title>AJAX: método GET</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+		
+		$(function(){
+
+			$("#btn").on("click", function(){
+				var _respuesta = $("input[name='respuesta']:checked").val();
+				$.get("24-datos-get.php", {respuesta: _respuesta}, function(datos){
+					$("#contenedor").html(datos);
+				});
+			});
+
+		});
+
+	</script>
+
+
+</head> 
+<body>
+
+	<form method="get">
+		<label>¿Cual de las funciones sirve para obtener el valor de un campo de formulario? :</label> <br>
+		text() <input type="radio" name="respuesta" value="text"> <br>
+		val() <input type="radio" name="respuesta" value="val"> <br>
+		html() <input type="radio" name="respuesta" value="html"> <br>
+		<button type="button" id="btn">Responder</button>
+	</form>
+
+	<div id="contenedor"></div>
+
+</body>
+</html>

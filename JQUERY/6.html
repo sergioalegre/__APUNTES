@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+	<title>Aplicar estilos CSS</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+
+		$(function(){
+
+			$("#contenido-1").css({
+				"backgroundColor": "blue",
+				"fontStyle":"italic",
+				"color":"FFF",
+				"fontSize":"20px",
+				"padding":"20px",
+			})
+
+			$("#contenido-2").mouseover(function(){
+				$(this).removeClass("default");
+				$(this).addClass("activo");
+			});
+
+			$("#contenido-2").mouseout(function(){
+				$(this).removeClass("activo");
+				$(this).addClass("default");
+			});
+
+
+		});
+
+	</script>
+</head>
+<body>
+
+	<style>
+
+	.default{
+		color: grey;
+		font-size: 20px;
+	}
+
+	.activo{
+		color: orange;
+		font-size: 25px;
+	}
+
+	</style>
+
+	<div id="contenido-1">
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</div>
+
+	<div id="contenido-2">
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</div>
+	
+</body>
+</html>

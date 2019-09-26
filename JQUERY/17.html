@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+	<title>Arrays: makeArray, map, size</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+
+		$(function(){
+
+			var elementos = $("#lista li");
+			var lista = $.makeArray(elementos);
+			$.each(lista, function(index){
+				$("#contenedor-1").append('Index' + index + ' texto: ' + $(this).text() + "<br>");
+			});
+
+			var array = ["pepe", "juan", "luis"];
+			$.map(array, function(index, valor){  //este no funciona parece
+				$("contenedor-2").append("Index: " + index + " valor: " + valor + "<br>");
+			});
+
+			$("strong").map(function(index){
+				$("#contenedor-3").append("Index: " + index + " texto: " + $(this).text() + '<br>');
+			});
+
+			alert($("li").size()); //nos dira el numero de etiquetas li en el html
+
+		});
+
+	</script>
+</head>
+<body>
+
+	<ul id="lista">
+		<li>uno</li>
+		<li>dos</li>
+		<li>tres</li>
+	</ul>
+
+	<div id="contenedor-1"></div>
+	<br> <br>
+
+	<div id="contenedor-2"></div>
+	<br> <br>
+
+	<strong>primera</strong>
+	<strong>segunda</strong>
+	<strong>tercera</strong>
+	<br> <br>
+	<div id="contenedor-3"></div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<title>Selectores avanzados</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+
+		$(function(){
+
+			//varios a la vez
+			$("#contenedor-1, #contenedor-2, #span-1").css({fontSize:"20px", fontStyle:"italic"});
+
+			//al primero
+			$("#lista li:first-child").css({backgroundColor:"orange"});
+
+			//al ultimo
+			$("#lista li:last-child").css({backgroundColor:"grey"});
+
+			//a uno concreto, en la posicion 1 es el segundo elemento li, 0 es el primero
+			$("#lista li:eq(1)").css({backgroundColor:"green"});
+
+			//busca todas las etiquetas dentro de un elemento que cumplan un criterio
+			$("#lista-2").find("li").css({backgroundColor:"blue"});
+			$("#lista-2").find(".clase").css({fontSize: "30px"});
+
+		});
+
+	</script>
+</head> 
+<body>
+
+	<div id="contenedor-1">Este es el contenedor-1</div>
+	<div id="contenedor-2">Este es el contenedor-2</div>
+	<span id="span-1">Este es el span-1</span>
+
+	<ul id="lista">
+		<li>uno</li>
+		<li>dos</li>
+		<li>tres</li>
+	</ul>
+
+	<ul id="lista-2">
+		<li>primer li</li>
+		<li class="clase">segundo li</li>
+		<li>tercer li</li>
+	</ul>
+
+</body>
+</html>

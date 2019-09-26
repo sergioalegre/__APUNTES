@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<title>Slider</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+
+		var imagenes = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];
+		var x=0;
+		var timer;
+		var reproducir = function(){
+			if (x > imagenes.length)
+			{
+				x=0;		
+			}
+			$("#imagen").attr('src', imagenes[x]);
+			x++;
+			timer = setTimeout("reproducir()", 2000);
+		}
+
+		var stop = function(){
+			clearTimeout(timer);
+		}
+		
+		$(function(){
+
+			reproducir();
+
+			$("#btn_iniciar").on("click", function(){
+				reproducir();
+			});
+
+			$("#btn_parar").on("click", function(){
+				stop();
+			});
+
+		});
+
+	</script>
+</head>
+<body>
+
+	<img src="" id="imagen">
+	<button type="button" id="btn_iniciar">Iniciar</button>
+	<button type="button" id="btn_parar">Parar</button>
+
+</body>
+</html>

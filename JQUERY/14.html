@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<title>Strings, replace, indexOf, lastIndexOf</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+		
+		$(function(){
+
+			$("#btn-1").on("click", function(){
+				var string = $("#contenedor").text().replace(/hola/gi, 'Adios'); //el operador g busca todas las coincidencias, el i ignora mayusculas de minusculas
+				 $("#contenedor").text(string);
+			});
+
+			$("#btn-2").on("click", function(){  //no me funciona
+				var string = $("#campo").val();
+				var posicion = $("#contenedor").text().indexOf(string);
+				if (posicion >= 0)
+				{
+					alert("El string " + string + " ha sido encontrado en la posción " + posicion);
+				}
+				else
+				{
+					alert("String no encontrado");
+				}
+			});
+
+		});
+
+	</script>
+</head>
+<body>
+
+	
+	<button id="btn-1">Reemplazar con replace</button>
+	<br>
+	Buscar string en el contenedor: <input type="text" id="campo"></input>
+	<button id="btn-2">Buscar</button>
+	<div id="contenedor">hola pepe, hola Antonio, HOLA JUAN</div>
+
+
+
+</body>
+</html>

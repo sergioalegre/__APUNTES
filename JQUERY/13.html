@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<title>Strings, length, toUpperCase, toLowerCase</title>
+	<meta chastet="utf-8">
+	<script src="jquery-1.11.1.min.js"></script>
+	<script>
+		
+		$(function(){
+
+			$("#btn-length").on("click", function(){
+				var caracteres = $("#contenedor").text().length;
+				$("#resultado").text("El total de caracteres es: " + caracteres);
+			});
+
+			$("#btn-mayusculas").on("click", function(){
+				var mayusculas = $("#contenedor").text().toUpperCase();
+				$("#contenedor").text(mayusculas);
+			});
+
+
+			$("#btn-minusculas").on("click", function(){
+				var minusculas = $("#contenedor").text().toLowerCase();
+				$("#contenedor").text(minusculas);
+			});
+
+		});
+
+	</script>
+</head>
+<body>
+
+	<div id="contenedor">
+		Contenido del contenedor
+	</div>
+	<button type="button" id="btn-length">Obtener el length</button>
+	<div id="resultado"></div>
+
+	<button type="button" id="btn-mayusculas">toUpperCase</button>
+	<button type="button" id="btn-minusculas">toLowerCase</button>
+
+</body>
+</html>
