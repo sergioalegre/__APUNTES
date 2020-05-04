@@ -1,5 +1,5 @@
 <!--
-REEMPLAZAR: github_username, repo, TITULO, DESCRIPCION, DESCRIPCION2, DEMO, TECNOLOGIAS
+REEMPLAZAR: github_username, Buscador-Ajax-similar-a-Google, TITULO, DESCRIPCION, DESCRIPCION2, DEMO, TECNOLOGIAS
 -->
 
 [![Contributors][contributors-shield]][contributors-url]
@@ -14,7 +14,7 @@ REEMPLAZAR: github_username, repo, TITULO, DESCRIPCION, DESCRIPCION2, DEMO, TECN
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/sergioalegre/repo">
+  <a href="https://github.com/sergioalegre/Buscador-Ajax-similar-a-Google">
     <img src="http://naarean.es/logo.JPG" alt="Logo" width="80" height="80">
   </a>
 
@@ -23,14 +23,14 @@ REEMPLAZAR: github_username, repo, TITULO, DESCRIPCION, DESCRIPCION2, DEMO, TECN
   <p align="center">
     <!-- DESCRIPCION -->Buscador con AJAX y JQuery similar a Google para backend en MySQL
     <br />
-    <a href="https://github.com/sergioalegre/repo"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/sergioalegre/Buscador-Ajax-similar-a-Google"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <!-- DEMO --><a href="http://naarean.es/Programacion/_BuscadorAJAX/">View Demo</a>
     ·
-    <a href="https://github.com/sergioalegre/repo/issues">Report Bug</a>
+    <a href="https://github.com/sergioalegre/Buscador-Ajax-similar-a-Google/issues">Report Bug</a>
     ·
-    <a href="https://github.com/sergioalegre/repo/issues">Request Feature</a>
+    <a href="https://github.com/sergioalegre/Buscador-Ajax-similar-a-Google/issues">Request Feature</a>
   </p>
 </p>
 
