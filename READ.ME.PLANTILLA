@@ -1,12 +1,7 @@
 <!--
-REEMPLAZAR: github_username, Buscador-Ajax-similar-a-Google, TITULO, DESCRIPCION, DESCRIPCION2, DEMO, TECNOLOGIAS
+REEMPLAZAR: Buscador-Ajax-similar-a-Google, TITULO, DESCRIPCION, DESCRIPCION2, DEMO, TECNOLOGIAS
 -->
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -129,18 +124,6 @@ LinkedIn: https://www.linkedin.com/in/sergioalegre
 * []()
 
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/sergioalegre/Best-README-Template.svg?style=flat-square
-[contributors-url]: https://github.com/sergioalegre/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/sergioalegre/Best-README-Template.svg?style=flat-square
-[forks-url]: https://github.com/sergioalegre/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/sergioalegre/Best-README-Template.svg?style=flat-square
-[stars-url]: https://github.com/sergioalegre/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/sergioalegre/Best-README-Template.svg?style=flat-square
-[issues-url]: https://github.com/sergioalegre/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/sergioalegre/Best-README-Template.svg?style=flat-square
-[license-url]: https://github.com/sergioalegre/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/sergioalegre
 [product-screenshot]: images/screenshot.png
