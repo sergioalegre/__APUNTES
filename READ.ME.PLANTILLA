@@ -26,8 +26,6 @@ REEMPLAZAR: Buscador-Ajax-similar-a-Google, TITULO, DESCRIPCION, DESCRIPCION2, D
   </p>
 </p>
 
-
-<!-- ABOUT THE PROJECT -->
 ## About The Project & Demo link
 <!-- DESCRIPCION2 --> <!-- DEMO -->
 Buscador con AJAX y JQuery similar a Google para backend en MySQL.  <a href="http://naarean.es/Programacion/_BuscadorAJAX/">Visita la demo aqui</a>
@@ -38,8 +36,6 @@ Buscador con AJAX y JQuery similar a Google para backend en MySQL.  <a href="htt
   </a>
 </p>
 
-
-<!-- CONTACT -->
 ## Contact
 Email: sergio.alegre.arribas EN gmail.com
 <br>
@@ -53,8 +49,6 @@ LinkedIn: https://www.linkedin.com/in/sergioalegre
 * [JQUERY](JQUERY)
 * [MYSQL](MYSQL)
 
-
-<!-- GETTING STARTED -->
 ## Getting Started
 ---
 
@@ -62,18 +56,14 @@ LinkedIn: https://www.linkedin.com/in/sergioalegre
 ---
 
 ### Installation
-
 ---
 
-<!-- USAGE EXAMPLES -->
 ## Usage
 ---
 
-<!-- ROADMAP -->
 ## Roadmap
 ---
 
-<!-- CONTRIBUTING -->
 ## Contributing
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -83,18 +73,14 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<!-- LICENSE -->
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
 
-<!-- CONTACT -->
 ## Contact
 Email: sergio.alegre.arribas EN gmail.com
 <br>
 LinkedIn: https://www.linkedin.com/in/sergioalegre
 
-
-<!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * []()
 * []()
