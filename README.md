@@ -35,22 +35,6 @@ REEMPLAZAR: repo, TITULO, DESCRIPCION, DESCRIPCION2, DEMO, TECNOLOGIAS
 </p>
 
 
-
-<!-- TABLE OF CONTENTS -->
-## Table of Contents
-
-* [About the Project](#about-the-project)
-  * [Built With](#built-with)
-* [Contact](#contact)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
-* [License](#license)
-* [Acknowledgements](#acknowledgements)
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project & Demo link
 [![Product Name Screen Shot][product-screenshot]](http://naarean.es/Programacion/_BuscadorAJAX/captura.png)
