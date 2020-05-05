@@ -29,7 +29,6 @@ REEMPLAZAR: repo, TITULO, DESCRIPCION, DESCRIPCION2, DEMO, TECNOLOGIAS
 
 
 ## About The Project & Demo link
-[![Product Name Screen Shot][product-screenshot]](http://naarean.es/Programacion/_BuscadorAJAX/captura.png)
 <!-- DESCRIPCION2 --> <!-- DEMO -->
 Apuntes de diferentes cursos y lenguajes
 
