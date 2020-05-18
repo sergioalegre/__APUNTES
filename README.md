@@ -39,13 +39,13 @@ LinkedIn: https://www.linkedin.com/in/sergioalegre
 
 
 ### Built With
-* [PHP](PHP)
+* PHP
 * [AJAX](AJAX)
 * [JQUERY](JQUERY)
 * [MYSQL](MYSQL)
 * [SASS](SASS)
 * [SQL](SQL)
-* [JScript](JScript)
+* JavaScript
 
 ## Getting Started
 ---
