@@ -82,11 +82,5 @@ Email: sergio.alegre.arribas EN gmail.com
 LinkedIn: https://www.linkedin.com/in/sergioalegre
 
 
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-* []()
-* []()
-* []()
-
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/sergioalegre
