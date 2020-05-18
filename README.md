@@ -8,7 +8,7 @@ REEMPLAZAR: repo, TITULO, DESCRIPCION, DESCRIPCION2, DEMO, TECNOLOGIAS
 <br />
 <p align="center">
   <a href="https://github.com/sergioalegre/repo">
-    <img src="http://naarean.es/logo.JPG" alt="Logo" width="80" height="80">
+    <img src="http://sergioalegre.es/logo.JPG" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center"><!-- TITULO -->Apuntes de diferentes cursos y lenguajes</h3>
@@ -19,7 +19,7 @@ REEMPLAZAR: repo, TITULO, DESCRIPCION, DESCRIPCION2, DEMO, TECNOLOGIAS
     <a href="https://github.com/sergioalegre/__APUNTES"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <!-- DEMO --><a href="http://naarean.es/Programacion/__APUNTES/">View Demo</a>
+    <!-- DEMO --><a href="http://sergioalegre.es/Programacion/__APUNTES/">View Demo</a>
     ·
     <a href="https://github.com/sergioalegre/repo/issues">Report Bug</a>
     ·
@@ -40,11 +40,11 @@ LinkedIn: https://www.linkedin.com/in/sergioalegre
 
 ### Built With
 * PHP
-* [AJAX](AJAX)
-* [JQUERY](JQUERY)
-* [MYSQL](MYSQL)
-* [SASS](SASS)
-* [SQL](SQL)
+* AJAX
+* JQUERY
+* MYSQL
+* SASS
+* SQL
 * JavaScript
 
 ## Getting Started
