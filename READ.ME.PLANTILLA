@@ -18,7 +18,7 @@ REEMPLAZAR: Buscador-Ajax-similar-a-Google, TITULO, DESCRIPCION, DESCRIPCION2, D
     <a href="https://github.com/sergioalegre/Buscador-Ajax-similar-a-Google"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <!-- DEMO --><a href="http://naarean.es/Programacion/_BuscadorAJAX/">View Demo</a>
+    <!-- DEMO --><a href="http://sergioalegre.es/Programacion/_BuscadorAJAX/">View Demo</a>
     ·
     <a href="https://github.com/sergioalegre/Buscador-Ajax-similar-a-Google/issues">Report Bug</a>
     ·
@@ -28,11 +28,11 @@ REEMPLAZAR: Buscador-Ajax-similar-a-Google, TITULO, DESCRIPCION, DESCRIPCION2, D
 
 ## About The Project & Demo link
 <!-- DESCRIPCION2 --> <!-- DEMO -->
-Buscador con AJAX y JQuery similar a Google para backend en MySQL.  <a href="http://naarean.es/Programacion/_BuscadorAJAX/">Visita la demo aqui</a>
+Buscador con AJAX y JQuery similar a Google para backend en MySQL.  <a href="http://sergioalegre.es/Programacion/_BuscadorAJAX/">Visita la demo aqui</a>
 <br><br>
 <p align="center">
-  <a href="http://naarean.es/Programacion/_BuscadorAJAX/">
-    <img src="http://naarean.es/Programacion/_BuscadorAJAX/captura.PNG" alt="Logo" width="360" height="">
+  <a href="http://sergioalegre.es/Programacion/_BuscadorAJAX/">
+    <img src="http://sergioalegre.es/Programacion/_BuscadorAJAX/captura.PNG" alt="Logo" width="360" height="">
   </a>
 </p>
 
