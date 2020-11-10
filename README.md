@@ -41,13 +41,15 @@ Website: http://me.sergioalegre.es
 
 
 ### Built With
-* PHP
+* Python
+* HTML5
+* PHP - PDO
 * AJAX
-* JQUERY
+* JQUERY - JavaScript
 * MYSQL
 * SASS
 * SQL
-* JavaScript
+* CSS - Handelbars
 
 ## Getting Started
 ---
