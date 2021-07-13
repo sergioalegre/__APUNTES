@@ -173,7 +173,7 @@
         echo $e->getLine() . ': ' . $e->getMessage();
     }
 
-//TRANSACCION O HACE LAS DOS CONSULTAS O NO HACE NINGUNA
+//TRANSACCION: O HACE LAS DOS CONSULTAS O NO HACE NINGUNA
     try{
     $conexion = new Conexion();
     $conn = $conexion->conectar();
