@@ -1,3 +1,6 @@
+#saber el tipo de dato
+PowerCLI C:\> $a.GetType()
+
 #Convertir de string a datetime
 PowerCLI C:\> $a.GetType()
 
