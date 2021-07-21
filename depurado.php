@@ -18,5 +18,3 @@
 	var_dump($data);
   
  ?>
-
- aaa
